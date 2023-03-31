@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FinGameUI.gd" type="Script" id=1]
+
+[node name="FinGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -191.0
+margin_right = 138.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 269.0
+margin_bottom = 301.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 262.0
+margin_bottom = 14.0
+text = "FIN DU JEU"
+
+[node name="PlayAgain" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 262.0
+margin_bottom = 38.0
+text = "Play again"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
