@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Robot.tscn" type="PackedScene" id=1]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Sol" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sol"]
+position = Vector2( -10, 440 )
+polygon = PoolVector2Array( -5, -3, 385, 304, 801, 343, 1076, 308, 1153, 139, 547, 97, 305, 57, 55, -62 )
+
+[node name="Robot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 121, 360 )
