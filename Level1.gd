@@ -6,7 +6,9 @@ extends Node2D
 # var b = "text"
 onready var robotScene = load("res://Robot.tscn")
 onready var sunScene = load("res://Sun.tscn")
+onready var noiseScene = load("res://NoiseEffect.tscn")
 
+onready var noise = noiseScene.instance()
 onready var sun = sunScene.instance()
 onready var p1 = robotScene.instance()
 onready var p2 = robotScene.instance()
@@ -28,7 +30,13 @@ func _ready():
 	sun.connect("pertubation_on", self, "_on_perturbation_received")
 	sun.connect("pertubation_off", self, "_on_perturbation_stopped")
 	
-	add_child(sun)
+	sun.connect("pertubation_on", noise, "is_on_perturbating")
+	sun.connect("pertubation_off", noise, "is_off_perturbating")
+	
+	noise.rect_size = Vector2(1920, 1080)
+	
+	self.add_child(sun)
+	$CanvasLayer.add_child(noise)
 
 func _on_perturbation_received():
 	print("PERTURBATION IS ON")

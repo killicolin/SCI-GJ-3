@@ -15,6 +15,9 @@ shader_param/noise = ExtResource( 3 )
 [node name="NoiseEffect" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
