@@ -17,7 +17,6 @@ func _ready():
 func set_player_label(player_number):
 	$Label.text="Player " + str(player_number) + " :"
 
-
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if player == 1:
@@ -34,7 +33,6 @@ func _input(event):
 					atomics = false
 					$player_atomics.start()
 					$show_atomics_used.start()
-					
 
 
 func _on_player_atomics_timeout():
