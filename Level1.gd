@@ -32,8 +32,7 @@ func _ready():
 	
 	sun.connect("pertubation_on", noise, "is_on_perturbating")
 	sun.connect("pertubation_off", noise, "is_off_perturbating")
-	
-#	sun.position = 
+
 	noise.rect_size = Vector2(1920, 1080)
 	
 	$CanvasLayer.add_child(sun)

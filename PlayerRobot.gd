@@ -13,6 +13,8 @@ var robotDisabled = false
 
 var debugCounter = 0
 
+var informationOrderReady = true
+
 func ready():
 	if player == "p2":
 		$AnimatedSprite.z_index = -1
@@ -85,7 +87,6 @@ func stop():
 		
 		state = "stop"
 		print("state is "+str(state))
-		
 		
 func repair():
 	if state == "disabled":
