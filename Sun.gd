@@ -28,9 +28,12 @@ func _ready():
 
 func emit_on():
 	emit_signal("pertubation_on")
+	print("signal on")
 
 func emit_off():
 	emit_signal("pertubation_off")
+	print("signal off")
+	
 
 func small_solar_perturbation():
 	#print_debug("is_arrive")
@@ -40,11 +43,14 @@ func small_solar_perturbation():
 	determinate_arriving_on_moon(time_to_wait)
 	#set state perturbating
 	time_to_wait.connect("timeout", self, "emit_on")
-	var time_perturbating = Timer.new()	
+	var time_perturbating = Timer.new()
 	time_perturbating.set_one_shot(true)
 	time_perturbating.set_wait_time(time_small_perturbation_on_moon)
 	#unset state perturbating
 	time_perturbating.connect("timeout", self, "emit_off")
+	self.add_child(time_perturbating)
+	time_perturbating.start()
+	
 	determinate_next_perturbation()
 
 func medium_solar_perturbation():
@@ -55,11 +61,16 @@ func medium_solar_perturbation():
 	determinate_arriving_on_moon(time_to_wait)
 	#set state perturbating
 	time_to_wait.connect("timeout", self, "emit_on")
-	var time_perturbating = Timer.new()	
+	
+	var time_perturbating = Timer.new()
 	time_perturbating.set_one_shot(true)
 	time_perturbating.set_wait_time(time_medium_perturbation_on_moon)
 	#unset state perturbating
 	time_perturbating.connect("timeout", self, "emit_off")
+	self.add_child(time_perturbating)
+	
+	time_perturbating.start()
+	
 	determinate_next_perturbation()
 
 func big_solar_perturbation():
@@ -75,6 +86,9 @@ func big_solar_perturbation():
 	time_perturbating.set_wait_time(time_big_perturbation_on_moon)
 	#unset state perturbating
 	time_perturbating.connect("timeout", self, "emit_off")
+	self.add_child(time_perturbating)
+	
+	time_perturbating.start()
 	determinate_next_perturbation()
 
 func determinate_arriving_on_moon(time_to_wait):
@@ -82,6 +96,8 @@ func determinate_arriving_on_moon(time_to_wait):
 	var my_random_time_to_wait = rng.randf_range(time_arriving_on_moon_min, time_arriving_on_moon_max)
 	time_to_wait.set_one_shot(true)
 	time_to_wait.set_wait_time(my_random_time_to_wait)
+	self.add_child(time_to_wait)
+	time_to_wait.start()
 	
 func determinate_next_perturbation():
 	var my_random_time_to_wait = rng.randf_range(time_between_perturbation_min, time_between_perturbation_max)

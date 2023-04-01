@@ -7,6 +7,7 @@ var state = "stop"
 
 var robotDisabled = false
 
+
 func ready():
 	if player == "p2":
 		$AnimatedSprite.z_index = -1

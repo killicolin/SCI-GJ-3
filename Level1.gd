@@ -5,8 +5,9 @@ extends Node2D
 # var a = 2
 # var b = "text"
 onready var robotScene = load("res://Robot.tscn")
+onready var sunScene = load("res://Sun.tscn")
 
-
+onready var sun = sunScene.instance()
 onready var p1 = robotScene.instance()
 onready var p2 = robotScene.instance()
 
@@ -23,7 +24,18 @@ func _ready():
 
 	$mainCamera.p1 = p1 
 	$mainCamera.p2 = p2
+	
+	sun.connect("pertubation_on", self, "_on_perturbation_received")
+	sun.connect("pertubation_off", self, "_on_perturbation_stopped")
+	
+	add_child(sun)
 
+func _on_perturbation_received():
+	print("PERTURBATION IS ON")
+
+func _on_perturbation_stopped():
+	print("PERTURBATION IS OFF")
+	
 
 func _on_endingArea_body_entered(body):
 	if body is KinematicBody2D:

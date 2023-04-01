@@ -6,9 +6,19 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "big",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "little",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "default",
+"name": "medium",
 "speed": 5.0
 } ]
 
@@ -19,3 +29,6 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "big"
+
+[node name="emitSignalsTimer" type="Timer" parent="."]
