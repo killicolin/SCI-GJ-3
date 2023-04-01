@@ -18,105 +18,52 @@ export var time_medium_perturbation_on_moon = 3.0
 export var time_big_perturbation_on_moon = 4.0
 
 # Called when the node enters the scene tree for the first time.
+var choose_time =0;
 var rng = RandomNumberGenerator.new()
-var perturbation = ["small_solar_perturbation","medium_solar_perturbation","big_solar_perturbation"]
+var perturbation_time = [time_small_perturbation_on_moon,time_medium_perturbation_on_moon,time_big_perturbation_on_moon]
 func _ready():
-	print_debug("Start")
 	$SunTrigger.connect("animation_finished", self, "reset_anim")
 	$AnimatedSprite.playing = true
-	$Timer.set_one_shot(true)
-	$Timer.connect("timeout", self, "choose_perturbation")
+	$Between.set_one_shot(true)
+	$Between.connect("timeout", self, "choose_perturbation")
+	$OnMoon.set_one_shot(true)
+	$OnMoon.connect("timeout", self, "emit_on")
+	$Perturbating.set_one_shot(true)
+	$Perturbating.connect("timeout", self, "emit_off")
 	determinate_next_perturbation()
 
 func reset_anim():
 	$SunTrigger.playing = false
 	$SunTrigger.frame=0
+	determinate_arriving_on_moon()
 
 func emit_on():
 	emit_signal("pertubation_on")
+	$Perturbating.start(choose_time)
 	print("signal on")
 
 func emit_off():
 	emit_signal("pertubation_off")
+	determinate_next_perturbation()
 	print("signal off")
 	
-func small_solar_perturbation():
-	#print_debug("is_arrive")
-	#play animation
+	
+func solar_perturbation():
 	$SunTrigger.playing = true
-	var time_to_wait = Timer.new()
-	determinate_arriving_on_moon(time_to_wait)
-	#set state perturbating
-	time_to_wait.connect("timeout", self, "emit_on")
-	var time_perturbating = Timer.new()
-	time_perturbating.set_one_shot(true)
-	time_perturbating.set_wait_time(time_small_perturbation_on_moon)
-	#unset state perturbating
-	time_perturbating.connect("timeout", self, "emit_off")
-	self.add_child(time_perturbating)
-	time_perturbating.start()
-	
-	determinate_next_perturbation()
 
-func medium_solar_perturbation():
-	#print_debug("is_arrive")
-	#play animation
-	$SunTrigger.playing = true
-	var time_to_wait = Timer.new()
-	determinate_arriving_on_moon(time_to_wait)
-	#set state perturbating
-	time_to_wait.connect("timeout", self, "emit_on")
-	
-	var time_perturbating = Timer.new()
-	time_perturbating.set_one_shot(true)
-	time_perturbating.set_wait_time(time_medium_perturbation_on_moon)
-	#unset state perturbating
-	time_perturbating.connect("timeout", self, "emit_off")
-	self.add_child(time_perturbating)
-	
-	time_perturbating.start()
-	
-	determinate_next_perturbation()
 
-func big_solar_perturbation():
-	#print_debug("is_arrive")
-	#play animation
-	$SunTrigger.playing = true
-	var time_to_wait = Timer.new()
-	determinate_arriving_on_moon(time_to_wait)
-	#set state perturbating
-	time_to_wait.connect("timeout", self, "emit_on")
-	var time_perturbating = Timer.new()	
-	time_perturbating.set_one_shot(true)
-	time_perturbating.set_wait_time(time_big_perturbation_on_moon)
-	#unset state perturbating
-	time_perturbating.connect("timeout", self, "emit_off")
-	self.add_child(time_perturbating)
-	
-	time_perturbating.start()
-	determinate_next_perturbation()
-
-func determinate_arriving_on_moon(time_to_wait):
-	#print_debug("Arriving")
+func determinate_arriving_on_moon():
 	var my_random_time_to_wait = rng.randf_range(time_arriving_on_moon_min, time_arriving_on_moon_max)
-	time_to_wait.set_one_shot(true)
-	time_to_wait.set_wait_time(my_random_time_to_wait)
-	self.add_child(time_to_wait)
-	time_to_wait.start()
+	$OnMoon.start(my_random_time_to_wait)
 	
 func determinate_next_perturbation():
 	var my_random_time_to_wait = rng.randf_range(time_between_perturbation_min, time_between_perturbation_max)
-	$Timer.start(my_random_time_to_wait)
-
+	$Between.start(my_random_time_to_wait)
 
 func choose_perturbation():
-	var perturbation_index = rng.randi_range(0,3)
-	if perturbation_index == 0 :
-		small_solar_perturbation()
-	elif perturbation_index == 1 :
-		medium_solar_perturbation()
-	else :
-		big_solar_perturbation()
+	var perturbation_index = rng.randi_range(0,2)
+	choose_time=perturbation_time[perturbation_index]
+	solar_perturbation()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

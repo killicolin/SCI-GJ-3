@@ -107,12 +107,15 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, -500 )
 script = ExtResource( 2 )
-time_between_perturbation_min = 8.0
-time_between_perturbation_max = 12.0
-time_arriving_on_moon_min = 5.0
-time_arriving_on_moon_max = 7.0
+time_between_perturbation_min = 4.0
+time_between_perturbation_max = 4.0
+time_arriving_on_moon_min = 1.0
+time_arriving_on_moon_max = 1.0
+time_small_perturbation_on_moon = 1.0
+time_medium_perturbation_on_moon = 1.0
+time_big_perturbation_on_moon = 1.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Between" type="Timer" parent="."]
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 20, -55 )
@@ -130,3 +133,7 @@ animation = "big"
 [node name="SunTrigger" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 speed_scale = 1.5
+
+[node name="OnMoon" type="Timer" parent="."]
+
+[node name="Perturbating" type="Timer" parent="."]
