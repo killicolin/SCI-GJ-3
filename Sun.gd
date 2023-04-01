@@ -23,6 +23,7 @@ var perturbation = ["small_solar_perturbation","medium_solar_perturbation","big_
 func _ready():
 	print_debug("Start")
 	$SunTrigger.connect("animation_finished", self, "reset_anim")
+	$AnimatedSprite.playing = true
 	$Timer.set_one_shot(true)
 	$Timer.connect("timeout", self, "choose_perturbation")
 	determinate_next_perturbation()
