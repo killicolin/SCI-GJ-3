@@ -82,9 +82,14 @@ func _on_perturbation_stopped():
 
 func _on_endingArea_body_entered(body):
 	if body is KinematicBody2D:
+		for nb in range(0,nbPlayers):
+			var i = UIunit.instance()
+			i.is_finished()
+		sun.is_finished()
+		body.get_node('WinSound').play(0.0)
 		body.get_node('AnimatedSprite').play("win")
 		body.robotDisabled = true
-		yield(get_tree().create_timer(1.0), "timeout")
+		yield(get_tree().create_timer(4.0), "timeout")
 		Singleton.winner = body.player
 		get_tree().change_scene("res://FinGameUI.tscn")
 

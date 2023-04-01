@@ -18,10 +18,12 @@ export var time_medium_perturbation_on_moon = 3.0
 export var time_big_perturbation_on_moon = 4.0
 
 # Called when the node enters the scene tree for the first time.
+var is_finish = false
 var choose_time =0;
 var rng = RandomNumberGenerator.new()
 var perturbation_time = [time_small_perturbation_on_moon,time_medium_perturbation_on_moon,time_big_perturbation_on_moon]
 func _ready():
+	is_finish = false
 	$SunTrigger.connect("animation_finished", self, "reset_anim")
 	$AnimatedSprite.playing = true
 	$Between.set_one_shot(true)
@@ -32,17 +34,21 @@ func _ready():
 	$Perturbating.connect("timeout", self, "emit_off")
 	determinate_next_perturbation()
 
+func is_finished():
+	is_finish=true
+
 func reset_anim():
 	$SunTrigger.playing = false
 	$SunTrigger.frame=0
 	determinate_arriving_on_moon()
 
 func emit_on():
-	emit_signal("pertubation_on")
-	$SunExplosionAudio.stop()
-	$RadAudio.play(0.0)
-	$Perturbating.start(choose_time)
-	print("signal on")
+	if !is_finish :
+		emit_signal("pertubation_on")
+		$SunExplosionAudio.stop()
+		$RadAudio.play(0.0)
+		$Perturbating.start(choose_time)
+		print("signal on")
 
 func emit_off():
 	emit_signal("pertubation_off")

@@ -12,6 +12,7 @@ export var timeBeforeExplosion = 3
 export var radiation_duration = 2
 var player = null
 var atomics = true
+var is_finish_ui = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_player_label(player)
@@ -28,9 +29,10 @@ func _input(event):
 					atomics = false
 					$player_atomics.start()
 					yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
-					emit_signal("pertubation_on_ui")
-					yield(get_tree().create_timer(radiation_duration), "timeout")
-					emit_signal("pertubation_off_ui")
+					if !is_finish_ui :
+						emit_signal("pertubation_on_ui")
+						yield(get_tree().create_timer(radiation_duration), "timeout")
+						emit_signal("pertubation_off_ui")
 					$show_atomics_used.start()
 		elif player == 2:
 			if Input.is_action_pressed("p2_action"):
@@ -39,11 +41,15 @@ func _input(event):
 					atomics = false
 					$player_atomics.start()
 					yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
-					emit_signal("pertubation_on_ui")
-					yield(get_tree().create_timer(radiation_duration), "timeout")
-					emit_signal("pertubation_off_ui")
+					if !is_finish_ui :
+						emit_signal("pertubation_on_ui")
+						yield(get_tree().create_timer(radiation_duration), "timeout")
+						emit_signal("pertubation_off_ui")
 					$show_atomics_used.start()
 
+
+func is_finished():
+	is_finish_ui = true
 
 func _on_player_atomics_timeout():
 	#atomics are ready again
