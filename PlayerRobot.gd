@@ -16,7 +16,7 @@ var robotDrive = false
 var robotTurnOff = false
 
 var informationOrderReady = true
-
+var exp_speed=1
 var atomics = true
 
 #func ready():
@@ -57,15 +57,17 @@ func get_input():
 
 func acceleration(delta):
 	if (speed < max_speed): #  IF speed not max speed --> accelerate
-		speed += delta * acceleration
-		
+		#speed += delta * acceleration
+		exp_speed= min(exp_speed+delta*acceleration,log(max_speed))
+		speed = exp(exp_speed)
 		if (speed > max_speed): # IF speed > max speed --> speed = max speed
 			speed = max_speed
 
 func decceleration(delta):
 	if (speed > min_speed): #  IF speed not max speed --> accelerate
-		speed -= delta * acceleration * decceleration_factor 
-		
+		#speed -= delta * acceleration * decceleration_factor 
+		exp_speed= max(exp_speed-delta*acceleration,1)
+		speed = exp(exp_speed)
 		if (speed < min_speed): # IF speed > max speed --> speed = max speed
 			speed = min_speed
 
