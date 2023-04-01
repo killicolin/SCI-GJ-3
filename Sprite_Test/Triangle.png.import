@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TriangleArrondi_.png-378dfd47c88fa838c548b2061b09de21.stex"
+path="res://.import/Triangle.png-4ec4a1124cfc68bc746c8131b48d23ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite_Test/TriangleArrondi_.png"
-dest_files=[ "res://.import/TriangleArrondi_.png-378dfd47c88fa838c548b2061b09de21.stex" ]
+source_file="res://Sprite_Test/Triangle.png"
+dest_files=[ "res://.import/Triangle.png-4ec4a1124cfc68bc746c8131b48d23ed.stex" ]
 
 [params]
 

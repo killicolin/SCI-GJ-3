@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Sprite_Test/Triangle_.png" type="Texture" id=1]
+[ext_resource path="res://Sprite_Test/Triangle.png" type="Texture" id=1]
 
 [node name="Triangle" type="StaticBody2D"]
 position = Vector2( 3584, 551 )

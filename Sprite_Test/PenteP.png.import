@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Triangle_.png-f37eb366cadfcab8de81a56ff6ed5ddd.stex"
+path="res://.import/PenteP.png-f276cfb7567e7757243ad9872e0ba911.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite_Test/Triangle_.png"
-dest_files=[ "res://.import/Triangle_.png-f37eb366cadfcab8de81a56ff6ed5ddd.stex" ]
+source_file="res://Sprite_Test/PenteP.png"
+dest_files=[ "res://.import/PenteP.png-f276cfb7567e7757243ad9872e0ba911.stex" ]
 
 [params]
 
