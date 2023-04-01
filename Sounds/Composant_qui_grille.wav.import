@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Composant_qui_grille.wav-bf272bdd6907a950459d2125bd8e637a.sample"
+
+[deps]
+
+source_file="res://Sounds/Composant_qui_grille.wav"
+dest_files=[ "res://.import/Composant_qui_grille.wav-bf272bdd6907a950459d2125bd8e637a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

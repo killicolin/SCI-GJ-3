@@ -95,35 +95,50 @@ func _physics_process(delta):
 #		self.modulate = Color(0,0,0.7)
 
 
+func asset_broke_run():
+	$AnimatedSprite.play("broke")
+	$ExplodeSound.play(0.0)
+
+func asset_reboot_run():
+	$AnimatedSprite.play("reboot")
+	$PowerUpSound.play(0.0)
+
+func asset_driving_run():
+	$AnimatedSprite.play("work")
+#	$DrivingSound.play(0.0)
+	
+func asset_stop_run():
+	$AnimatedSprite.play("stop")
+	$PowerDownSound.play(0.0)
+	
 func broke():
 	if state == "work":
 		state = "broke"
 		robotDisabled = true
 		$disabledTimer.start()
-		$AnimatedSprite.play("broke")
+		asset_broke_run()
 
 
 func work():
 	if state == "stop" and $turnedOffTimer.time_left == 0:
 		$turnedOffTimer.start()
-		$AnimatedSprite.play("reboot")
+		asset_reboot_run()
 	elif state == "work" and robotDisabled == false:
-		$AnimatedSprite.play("work")
+		asset_driving_run()
 		
 		
 func stop():
 	if state == "work":
 		state = "stop"
 		yield(get_tree().create_timer(1.0), "timeout")
-		$AnimatedSprite.play("stop")
-
+		asset_stop_run()
 
 func repair():
 	if state == "disabled":
-		$AnimatedSprite.play("reboot")
+		asset_reboot_run()
+		
 		yield(get_tree().create_timer(1.0), "timeout")
 		state = "work"
-
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
