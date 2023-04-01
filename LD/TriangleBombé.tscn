@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprite_Test/TriangleArrondi_.png" type="Texture" id=1]
+
+[node name="TriangleBombé" type="StaticBody2D"]
+position = Vector2( 3585, 780 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -142.5, 114, 141, 114, 116, 71, 80, 26, 20, -31, -29, -64, -106, -101, -142.5, -114 )
