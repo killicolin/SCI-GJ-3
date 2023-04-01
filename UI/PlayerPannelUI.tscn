@@ -4,47 +4,42 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://UI/PlayerPannelUI.gd" type="Script" id=3]
 
-[node name="Control" type="HBoxContainer"]
+[node name="Hbox" type="HBoxContainer"]
 anchor_right = 0.2
 anchor_bottom = 1.0
-margin_bottom = -500.0
+margin_right = 150.2
+margin_bottom = -520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
 alignment = 1
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 43.0
+margin_top = 33.0
 margin_right = 74.0
-margin_bottom = 57.0
+margin_bottom = 47.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.75
 text = "PLAYER 01 :"
 align = 1
 valign = 1
 
-[node name="PowerIcone" type="HBoxContainer" parent="."]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 78.0
-margin_right = 142.0
-margin_bottom = 100.0
+margin_right = 151.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PowerIcone"]
-margin_right = 64.0
-margin_bottom = 100.0
-size_flags_horizontal = 0
-size_flags_vertical = 5
 texture = ExtResource( 1 )
-stretch_mode = 6
+expand = true
+stretch_mode = 1
 
 [node name="QTE" type="HBoxContainer" parent="."]
-margin_left = 78.0
-margin_top = 18.0
-margin_right = 278.0
-margin_bottom = 82.0
+margin_left = 155.0
+margin_top = 8.0
+margin_right = 355.0
+margin_bottom = 72.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1

@@ -7,15 +7,23 @@ extends Node2D
 onready var robotScene = load("res://Robot.tscn")
 onready var sunScene = load("res://Sun.tscn")
 onready var noiseScene = load("res://NoiseEffect.tscn")
+onready var UIunit = load("res://UI/PlayerPannelUI.tscn")
 
 onready var noise = noiseScene.instance()
 onready var sun = sunScene.instance()
 onready var p1 = robotScene.instance()
 onready var p2 = robotScene.instance()
 
+var nbPlayers = 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
+	for nb in range(0,nbPlayers):
+		var i = UIunit.instance()
+		i.player = nb + 1
+		$CanvasLayer/UIbar/PanelContainer/HBoxContainer.add_child(i)
+		
 	p2.player = "p2"
 	p1.position = $SpawnPoint.position
 	p1.get_node("AnimatedSprite").offset = Vector2(0,-100)
