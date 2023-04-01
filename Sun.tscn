@@ -109,13 +109,13 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, -500 )
 script = ExtResource( 2 )
-time_between_perturbation_min = 4.0
-time_between_perturbation_max = 4.0
-time_arriving_on_moon_min = 1.0
-time_arriving_on_moon_max = 1.0
-time_small_perturbation_on_moon = 1.0
-time_medium_perturbation_on_moon = 1.0
-time_big_perturbation_on_moon = 1.0
+
+time_between_perturbation_min = 12.0
+time_between_perturbation_max = 15.0
+time_arriving_on_moon_max = 4.0
+time_small_perturbation_on_moon = 6.0
+time_medium_perturbation_on_moon = 6.0
+time_big_perturbation_on_moon = 6.0
 
 [node name="Between" type="Timer" parent="."]
 

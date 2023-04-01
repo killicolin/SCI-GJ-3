@@ -80,6 +80,7 @@ animation = "broke"
 shape = SubResource( 2 )
 
 [node name="disabledTimer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [node name="debugLabel" type="Label" parent="."]
@@ -88,8 +89,9 @@ margin_top = 39.0
 margin_right = 21.0
 margin_bottom = 53.0
 
-[node name="turnedOnTimer" type="Timer" parent="."]
-wait_time = 2.0
+[node name="turnedOffTimer" type="Timer" parent="."]
+wait_time = 0.75
+
 one_shot = true
 
 [node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
