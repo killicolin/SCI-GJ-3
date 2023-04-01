@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprite/Roover_gris.png" type="Texture" id=1]
 [ext_resource path="res://PlayerRobot.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Sprite/Anim_plante_de_drapeau/3.png" type="Texture" id=4]
 [ext_resource path="res://Sprite/Anim_plante_de_drapeau/1.png" type="Texture" id=5]
 [ext_resource path="res://Sprite/Anim_plante_de_drapeau/2.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/Anim_robot_mise_en_marche/Arret.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/Anim_robot_mise_en_marche/Marche.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/Anim_robot_mise_en_marche/Milieu.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,8 +22,13 @@ animations = [ {
 "name": "disabled",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "reboot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": false,
 "name": "stop",
 "speed": 5.0
 }, {
@@ -46,7 +54,7 @@ script = ExtResource( 2 )
 position = Vector2( -2, 1.00001 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 1 )
-animation = "win"
+animation = "reboot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
