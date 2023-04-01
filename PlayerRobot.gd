@@ -15,8 +15,6 @@ var robotDisabled = false
 var robotDrive = false
 var robotTurnOff = false
 
-var debugCounter = 0
-
 var informationOrderReady = true
 
 var atomics = true
@@ -102,24 +100,28 @@ func broke():
 		state = "broke"
 		robotDisabled = true
 		$disabledTimer.start()
+		$AnimatedSprite.play("broke")
 
 
 func work():
 	if state == "stop" and $turnedOffTimer.time_left == 0:
 		$turnedOffTimer.start()
+		$AnimatedSprite.play("reboot")
+	elif state == "work" and robotDisabled == false:
+		$AnimatedSprite.play("work")
 		
-
-
+		
 func stop():
 	if state == "work":
-		print("state is "+str(state))
-		
 		state = "stop"
-		print("state is "+str(state))
+		yield(get_tree().create_timer(1.0), "timeout")
+		$AnimatedSprite.play("stop")
 
 
 func repair():
 	if state == "disabled":
+		$AnimatedSprite.play("reboot")
+		yield(get_tree().create_timer(1.0), "timeout")
 		state = "work"
 
 
@@ -142,12 +144,10 @@ func _input(event):
 			if Input.is_action_pressed("p2_stop"):
 				stop()
 
-
 func _on_disabledTimer_timeout():
 	print("End disability")
 	state = "stop"
 	robotDisabled = false
-
 
 func _on_turnedOffTimer_timeout():
 	print("Rover turn on. Go!")
