@@ -15,8 +15,6 @@ var robotDisabled = false
 var robotDrive = false
 var robotTurnOff = false
 
-var debugCounter = 0
-
 var informationOrderReady = true
 
 var atomics = true
@@ -102,11 +100,13 @@ func broke():
 		state = "broke"
 		robotDisabled = true
 		$disabledTimer.start()
+		$AnimatedSprite.play("broke")
 
 
 func work():
 	if state == "stop" and $turnedOffTimer.time_left == 0:
 		$turnedOffTimer.start()
+		$AnimatedSprite.play("work")
 		
 
 

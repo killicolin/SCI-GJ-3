@@ -119,7 +119,7 @@ texture = ExtResource( 23 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "big"
-frame = 8
+frame = 36
 speed_scale = 2.0
 playing = true
 
