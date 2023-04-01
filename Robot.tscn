@@ -11,8 +11,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30, 29 )
+[sub_resource type="CircleShape2D" id=2]
+radius = 31.0
 
 [node name="Robot" type="KinematicBody2D"]
 collision_mask = 2
@@ -25,7 +25,12 @@ frames = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="disabledTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
+
+[node name="debugLabel" type="Label" parent="."]
+margin_left = -19.0
+margin_top = 39.0
+margin_right = 21.0
+margin_bottom = 53.0
 
 [connection signal="timeout" from="disabledTimer" to="." method="_on_disabledTimer_timeout"]

@@ -11,6 +11,7 @@ var state = "stop"
 
 var robotDisabled = false
 
+var debugCounter = 0
 
 func ready():
 	if player == "p2":
@@ -21,12 +22,15 @@ func get_input():
 	var input_direction = Vector2(0,0)
 	if player == "p1":
 		if not robotDisabled:
-			work()
 			input_direction = Input.get_vector("ui_accept", "p1_right", "ui_accept", "ui_accept")
+			if input_direction[0] >= 1:
+				work()
 	elif player == "p2":
 		if not robotDisabled:
-			work()
 			input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
+			if input_direction[0] >= 1:
+				work()
+
 		
 	velocity = input_direction * speed
 
@@ -45,14 +49,15 @@ func _physics_process(delta):
 	velocity = starting_acceleration(delta, velocity)
 	move_and_slide(velocity)
 	position.y -= delta * gravity * -1
+	$debugLabel.text = self.state
 
 func check_state():
 	if state == "broke":
-		self.modulate = Color(50,0,0)
-	elif state == "working":
-		self.modulate = Color(0,50,0)
+		self.modulate = Color(0.5,0,0)
+	elif state == "work":
+		self.modulate = Color(0,1,0)
 	elif state == "stop":
-		self.modulate = Color(0,0,50)
+		self.modulate = Color(0,0,1)
 		
 func broke():
 	if state == "work":
@@ -61,12 +66,22 @@ func broke():
 		$disabledTimer.start()
 
 func work():
+	print("working called : "+str(debugCounter))
+	debugCounter += 1
 	if state == "stop":
 		state = "work"
 
 func stop():
 	if state == "work":
+		print("state is "+str(state))
+		
 		state = "stop"
+		print("state is "+str(state))
+		
+		
+func repair():
+	if state == "disabled":
+		state = "work"
 		
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -85,4 +100,6 @@ func _input(event):
 
 
 func _on_disabledTimer_timeout():
+	print("End disability")
+	state = "stop"
 	robotDisabled = false

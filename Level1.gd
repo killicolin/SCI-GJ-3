@@ -35,11 +35,13 @@ func _ready():
 	
 	noise.rect_size = Vector2(1920, 1080)
 	
-	self.add_child(sun)
+	$CanvasLayer.add_child(sun)
 	$CanvasLayer.add_child(noise)
 
 func _on_perturbation_received():
 	print("PERTURBATION IS ON")
+	p1.broke()
+	p2.broke()
 
 func _on_perturbation_stopped():
 	print("PERTURBATION IS OFF")
