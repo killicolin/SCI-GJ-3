@@ -1,8 +1,67 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://Sprite_Test/Carré_.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://UI/PlayerPannelUI.gd" type="Script" id=3]
+
+[node name="Control" type="HBoxContainer"]
 anchor_right = 0.2
 anchor_bottom = 1.0
 margin_bottom = -500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 43.0
+margin_right = 74.0
+margin_bottom = 57.0
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.75
+text = "PLAYER 01 :"
+align = 1
+valign = 1
+
+[node name="PowerIcone" type="HBoxContainer" parent="."]
+visible = false
+margin_left = 78.0
+margin_right = 142.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PowerIcone"]
+margin_right = 64.0
+margin_bottom = 100.0
+size_flags_horizontal = 0
+size_flags_vertical = 5
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="QTE" type="HBoxContainer" parent="."]
+margin_left = 78.0
+margin_top = 18.0
+margin_right = 278.0
+margin_bottom = 82.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="QTE"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="QTE"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="QTE"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
