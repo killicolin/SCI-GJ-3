@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-export var speed = 10
+export var speed = 0
 export var acceleration = 90
+export var decceleration_factor = 3
+export var min_speed = 0
 export var max_speed = 400
 export var gravity = 200
 
@@ -10,6 +12,7 @@ var player = "p1"
 var state = "stop"
 
 var robotDisabled = false
+var robotDrive = false
 
 var debugCounter = 0
 
@@ -27,8 +30,10 @@ func get_input():
 			input_direction = Input.get_vector("ui_accept", "p1_right", "ui_accept", "ui_accept")
 			if input_direction[0] >= 1:
 				work()
-			elif state == "stop":
-				speed = 10
+				robotDrive = true
+			else:
+				robotDrive = false
+				input_direction[0] = 1
 		else:
 			speed = 0
 	
@@ -37,27 +42,41 @@ func get_input():
 			input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
 			if input_direction[0] >= 1:
 				work()
-			elif state == "stop":
-				speed = 10
+				robotDrive = true
+			else:
+				robotDrive = false
+				input_direction[0] = 1
 		else:
 			speed = 0
 		
 	velocity = input_direction * speed
 
-func starting_acceleration(delta, velocity):
+func acceleration(delta):
 	if (speed < max_speed): #  IF speed not max speed --> accelerate
 		speed += delta * acceleration
 		
 		if (speed > max_speed): # IF speed > max speed --> speed = max speed
 			speed = max_speed
-			
-	return velocity
+
+func decceleration(delta):
+	if (speed > min_speed): #  IF speed not max speed --> accelerate
+		speed -= delta * acceleration * decceleration_factor 
+		
+		if (speed < min_speed): # IF speed > max speed --> speed = max speed
+			speed = min_speed
+
 
 func _physics_process(delta):
 	get_input()
 	check_state()
-	velocity = starting_acceleration(delta, velocity)
 	move_and_slide(velocity)
+	
+	if not robotDisabled:
+		if robotDrive:
+			acceleration(delta)
+		else:
+			decceleration(delta)
+	
 	position.y -= delta * gravity * -1
 	$debugLabel.text = self.state
 
