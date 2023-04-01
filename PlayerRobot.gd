@@ -18,6 +18,11 @@ var debugCounter = 0
 
 var informationOrderReady = true
 
+signal pertubation_on
+signal pertubation_off
+
+var atomics = true
+
 #func ready():
 #	if player == "p1":
 #		$AnimatedSprite.z_index = 10
@@ -118,15 +123,19 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if player == "p1":
 			if Input.is_action_pressed("p1_action"):
+				if atomics == true:
+					emit_signal("pertubation_on")
+					atomics = false
 				print("p1 acted")
 			if Input.is_action_pressed("p1_stop"):
-				print("p1 stopped")
 				stop()
 		elif player == "p2":
 			if Input.is_action_pressed("p2_action"):
+				if atomics == true:
+					emit_signal("pertubation_on")
+					atomics = false
 				print("p2 acted")
 			if Input.is_action_pressed("p2_stop"):
-				print("p2 stopped")
 				stop()
 
 

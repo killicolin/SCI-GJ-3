@@ -61,8 +61,8 @@ motion_scale = Vector2( 0.5, 0.5 )
 
 [node name="background" type="Sprite" parent="backGroundCanva/ParallaxLayer"]
 visible = false
-position = Vector2( 1305, -54 )
-scale = Vector2( 13.2101, 12.4319 )
+position = Vector2( 1419.5, 391 )
+scale = Vector2( 10.7344, 9.92222 )
 texture = ExtResource( 6 )
 
 [connection signal="body_entered" from="endingArea" to="." method="_on_endingArea_body_entered"]
