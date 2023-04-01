@@ -24,7 +24,7 @@ func _ready():
 	print_debug("Start")
 	$Timer.set_one_shot(true)
 	$Timer.connect("timeout", self, "choose_perturbation")
-	determinate_next_perturbation()
+	#determinate_next_perturbation()
 
 func emit_on():
 	emit_signal("pertubation_on")

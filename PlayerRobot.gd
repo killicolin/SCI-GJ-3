@@ -18,10 +18,13 @@ var debugCounter = 0
 
 var informationOrderReady = true
 
-func ready():
-	if player == "p2":
-		$AnimatedSprite.z_index = -1
-		$AnimatedSprite.offset = Vector2(0, -500)
+#func ready():
+#	if player == "p1":
+#		$AnimatedSprite.z_index = 10
+#		$AnimatedSprite.offset = Vector2(0, 0)
+#	if player == "p2":
+#		$AnimatedSprite.z_index = -10
+#		$AnimatedSprite.offset = Vector2(0, -500)
 
 func get_input():
 	var input_direction = Vector2(0,0)
@@ -68,7 +71,7 @@ func decceleration(delta):
 
 func _physics_process(delta):
 	get_input()
-	check_state()
+	#check_state()
 	move_and_slide(velocity)
 	
 	if not robotDisabled:
@@ -80,13 +83,13 @@ func _physics_process(delta):
 	position.y -= delta * gravity * -1
 	$debugLabel.text = self.state
 
-func check_state():
-	if state == "broke":
-		self.modulate = Color(0.7,0,0)
-	elif state == "work":
-		self.modulate = Color(0,0.7,0)
-	elif state == "stop":
-		self.modulate = Color(0,0,0.7)
+#func check_state():
+#	if state == "broke":
+#		self.modulate = Color(0.7,0,0)
+#	elif state == "work":
+#		self.modulate = Color(0,0.7,0)
+#	elif state == "stop":
+#		self.modulate = Color(0,0,0.7)
 		
 func broke():
 	if state == "work":

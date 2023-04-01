@@ -18,8 +18,12 @@ func _ready():
 
 	p2.player = "p2"
 	p1.position = $SpawnPoint.position
+	p1.get_node("AnimatedSprite").offset = Vector2(0,-100)
+	p1.get_node("AnimatedSprite").modulate = Color(0,0,0.7)
 	p2.position = $SpawnPoint.position
-	p2.get_node("AnimatedSprite").offset = Vector2(0,-50)
+	p2.get_node("AnimatedSprite").offset = Vector2(0,-200)
+	p2.get_node("AnimatedSprite").z_index = -1
+	p2.get_node("AnimatedSprite").modulate = Color(0.7,0,0)
 	
 	add_child(p1)
 	add_child(p2)

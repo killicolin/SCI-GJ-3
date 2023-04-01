@@ -41,6 +41,7 @@ autoplay = true
 position = Vector2( 151, 77 )
 
 [node name="mainCamera" type="Camera2D" parent="."]
+offset = Vector2( 0, -200 )
 current = true
 script = ExtResource( 1 )
 
