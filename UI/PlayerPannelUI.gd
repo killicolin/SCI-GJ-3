@@ -32,7 +32,7 @@ func _input(event):
 					yield(get_tree().create_timer(radiation_duration), "timeout")
 					emit_signal("pertubation_off_ui")
 					$show_atomics_used.start()
-		elif player == 3:
+		elif player == 2:
 			if Input.is_action_pressed("p2_action"):
 				if atomics:
 					print("p2 acted")
