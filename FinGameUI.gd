@@ -16,9 +16,18 @@ func _ready():
 
 func _on_PlayAgain_pressed():
 	get_tree().change_scene("res://Level1.tscn")
-	pass # Replace with function body.
-
 
 func _on_MainMenu_pressed():
 	get_tree().change_scene("res://Main.tscn")
-	pass # Replace with function body.
+
+func _on_PlayAgain_mouse_entered():
+	$VBoxContainer/PlayAgain.modulate = Color(0.5,0.5,0.5)
+
+func _on_PlayAgain_mouse_exited():
+	$VBoxContainer/PlayAgain.modulate = Color(1, 1, 1)
+	
+func _on_MainMenu_mouse_exited():
+	$VBoxContainer/MainMenu.modulate = Color(1, 1, 1)
+
+func _on_MainMenu_mouse_entered():
+	$VBoxContainer/MainMenu.modulate = Color(0.5, 0.5, 0.5)

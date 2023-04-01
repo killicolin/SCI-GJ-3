@@ -49,5 +49,9 @@ margin_right = 574.0
 margin_bottom = 217.0
 text = "Menu"
 
+[connection signal="mouse_entered" from="VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MainMenu" to="." method="_on_MainMenu_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MainMenu" to="." method="_on_MainMenu_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]

@@ -64,4 +64,6 @@ margin_right = 1005.0
 margin_bottom = 580.0
 text = "Play"
 
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Play" to="." method="_on_Play_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
