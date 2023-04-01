@@ -149,7 +149,7 @@ position = Vector2( -3660, 212 )
 position = Vector2( -5625, -215 )
 
 [node name="endingArea" type="Area2D" parent="."]
-position = Vector2( 11516, 403 )
+position = Vector2( 11373, 385 )
 collision_layer = 3
 collision_mask = 3
 __meta__ = {
@@ -167,7 +167,7 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( -6539, -323 )
+position = Vector2( -6354, -333 )
 
 [node name="mainCamera" type="Camera2D" parent="."]
 offset = Vector2( 0, -200 )
@@ -183,7 +183,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="backGroundCanva" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="backGroundCanva"]
 motion_scale = Vector2( 0.2, 0.2 )
@@ -208,6 +207,6 @@ motion_scale = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 1440, 0 )
 
 [node name="background" type="Sprite" parent="backGroundCanva/ParallaxLayer3"]
-position = Vector2( -807, -3832 )
+position = Vector2( -120, -3386 )
 scale = Vector2( 10.7344, 9.92222 )
 texture = ExtResource( 15 )
