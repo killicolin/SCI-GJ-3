@@ -80,5 +80,6 @@ func _on_endingArea_body_entered(body):
 		body.get_node('AnimatedSprite').play("win")
 		body.robotDisabled = true
 		yield(get_tree().create_timer(1.0), "timeout")
+		Singleton.winner = body.player
 		get_tree().change_scene("res://FinGameUI.tscn")
 
