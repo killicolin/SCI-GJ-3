@@ -39,17 +39,21 @@ func reset_anim():
 
 func emit_on():
 	emit_signal("pertubation_on")
+	$SunExplosionAudio.stop()
+	$RadAudio.play(0.0)
 	$Perturbating.start(choose_time)
 	print("signal on")
 
 func emit_off():
 	emit_signal("pertubation_off")
+	$RadAudio.stop()
 	determinate_next_perturbation()
 	print("signal off")
 	
 	
 func solar_perturbation():
 	$SunTrigger.playing = true
+	$SunExplosionAudio.play(0.0)
 
 
 func determinate_arriving_on_moon():
