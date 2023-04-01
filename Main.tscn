@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Ciel_sans_soleil.png" type="Texture" id=2]
 [ext_resource path="res://serious_font.tres" type="Theme" id=3]
 [ext_resource path="res://Fonts/kirifont/KiriFont.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/xolonium/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -12,6 +13,10 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 5 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -47,7 +52,7 @@ custom_constants/separation = 100
 margin_right = 1005.0
 margin_bottom = 65.0
 custom_fonts/font = SubResource( 1 )
-text = "Radiations rover"
+text = "1 ! 2 ! 3 ! Rover"
 align = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
@@ -56,7 +61,12 @@ margin_right = 1005.0
 margin_bottom = 441.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Ecrire le tutorial ici"
+custom_fonts/normal_font = SubResource( 2 )
+text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui deux rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps...
+
+Les contrôles sont :
+Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover et Espace pour activer la compétence.
+Pour le joueur 2 : \"D\" pour avancer, \"S\" pour éteindre le rover et \"A\" pour activer la compétence."
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_top = 541.0
