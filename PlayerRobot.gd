@@ -18,9 +18,6 @@ var debugCounter = 0
 
 var informationOrderReady = true
 
-signal pertubation_on
-signal pertubation_off
-
 var atomics = true
 
 #func ready():

@@ -65,4 +65,9 @@ texture = ExtResource( 2 )
 wait_time = 10.0
 one_shot = true
 
+[node name="show_atomics_used" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="player_atomics" to="." method="_on_player_atomics_timeout"]
+[connection signal="timeout" from="show_atomics_used" to="." method="_on_show_atomics_used_timeout"]
