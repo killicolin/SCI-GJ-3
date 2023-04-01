@@ -34,7 +34,6 @@ func emit_off():
 	emit_signal("pertubation_off")
 	print("signal off")
 	
-
 func small_solar_perturbation():
 	#print_debug("is_arrive")
 	#play animation

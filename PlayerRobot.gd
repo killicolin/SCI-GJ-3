@@ -57,11 +57,11 @@ func _physics_process(delta):
 
 func check_state():
 	if state == "broke":
-		self.modulate = Color(0.5,0,0)
+		self.modulate = Color(0.7,0,0)
 	elif state == "work":
-		self.modulate = Color(0,1,0)
+		self.modulate = Color(0,0.7,0)
 	elif state == "stop":
-		self.modulate = Color(0,0,1)
+		self.modulate = Color(0,0,0.7)
 		
 func broke():
 	if state == "work":
