@@ -54,7 +54,9 @@ func _ready():
 	print_debug($mainCamera.get_viewport().get_visible_rect().size.y)
 	$mainCamera.connect("zoom_change", self, "replace_sun")
 	replace_sun()
-
+	$CanvasLayer.add_child(noise)
+	
+	
 func replace_sun():
 	var sun_size =$mainCamera.get_viewport().get_visible_rect().size.y/600
 	sun.scale = (Vector2(1.0,1.0)+$mainCamera.zoom*sun_size)*sun_default_scale
@@ -63,8 +65,6 @@ func replace_sun():
 	map_pos.x = 0
 	map_pos.y =  (-400 - $mainCamera.get_viewport().get_visible_rect().size.y/2)*$mainCamera.zoom.y/2
 	sun.position = map_pos
-
-	$CanvasLayer.add_child(noise)
 
 func _on_perturbation_received():
 	print("PERTURBATION IS ON")
