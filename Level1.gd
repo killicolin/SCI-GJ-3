@@ -4,6 +4,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export var sun_default_scale =0.4
+
 onready var robotScene = load("res://Robot.tscn")
 onready var sunScene = load("res://Sun.tscn")
 onready var noiseScene = load("res://NoiseEffect.tscn")
@@ -46,8 +48,22 @@ func _ready():
 	sun.connect("pertubation_off", noise, "is_off_perturbating")
 
 	noise.rect_size = Vector2(1920, 1080)
+
+	$mainCamera.add_child(sun)
+	get_tree().get_root().connect("size_changed", self, "replace_sun")
+	print_debug($mainCamera.get_viewport().get_visible_rect().size.y)
+	$mainCamera.connect("zoom_change", self, "replace_sun")
+	replace_sun()
+
+func replace_sun():
+	var sun_size =$mainCamera.get_viewport().get_visible_rect().size.y/600
+	sun.scale = (Vector2(1.0,1.0)+$mainCamera.zoom*sun_size)*sun_default_scale
 	
-	$CanvasLayer.add_child(sun)
+	var map_pos = Vector2()
+	map_pos.x = 0
+	map_pos.y =  (-400 - $mainCamera.get_viewport().get_visible_rect().size.y/2)*$mainCamera.zoom.y/2
+	sun.position = map_pos
+
 	$CanvasLayer.add_child(noise)
 
 func _on_perturbation_received():

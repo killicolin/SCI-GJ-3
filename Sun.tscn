@@ -104,7 +104,7 @@ animations = [ {
 } ]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 497, 128 )
+position = Vector2( 0, -500 )
 script = ExtResource( 2 )
 time_between_perturbation_min = 8.0
 time_between_perturbation_max = 12.0
@@ -119,9 +119,8 @@ texture = ExtResource( 23 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "big"
-frame = 36
+491a10 ([fix] sun position and scale)
 speed_scale = 2.0
-playing = true
 
 [node name="SunTrigger" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
