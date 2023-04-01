@@ -45,3 +45,12 @@ func stop():
 	if state == "work":
 		state = "stop"
 		
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if player == "p1":
+			if Input.is_action_pressed("p1_action"):
+				print("p1 acted")
+		elif player == "p2":
+			if Input.is_action_pressed("p2_action"):
+				print("p2 acted")
+
