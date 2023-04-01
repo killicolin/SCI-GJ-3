@@ -25,16 +25,20 @@ func get_input():
 			input_direction = Input.get_vector("ui_accept", "p1_right", "ui_accept", "ui_accept")
 			if input_direction[0] >= 1:
 				work()
-			else:
+			elif state == "stop":
 				speed = 10
+		else:
+			speed = 0
+	
 	elif player == "p2":
 		if not robotDisabled:
 			input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
 			if input_direction[0] >= 1:
 				work()
-			else:
+			elif state == "stop":
 				speed = 10
-
+		else:
+			speed = 0
 		
 	velocity = input_direction * speed
 
