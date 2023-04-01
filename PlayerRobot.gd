@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
 export var speed = 10
-export var acceleration = 30
+export var acceleration = 50
 export var max_speed = 400
+export var gravity = 200
+
 var velocity
 var player = "p1"
 var state = "stop"
@@ -29,18 +31,20 @@ func get_input():
 	velocity = input_direction * speed
 
 func starting_acceleration(delta, velocity):
-	if (velocity < max_speed):
-		velocity += delta * acceleration
+	if (speed < max_speed): #  IF speed not max speed --> accelerate
+		speed += delta * acceleration
 		
-		if (velocity > max_speed):
-			velocity = max_speed
+		if (speed > max_speed): # IF speed > max speed --> speed = max speed
+			speed = max_speed
+			
+	return velocity
 
 func _physics_process(delta):
 	get_input()
 	check_state()
-	
+	velocity = starting_acceleration(delta, velocity)
 	move_and_slide(velocity)
-	position.y -= delta * speed * -1
+	position.y -= delta * gravity * -1
 
 func check_state():
 	if state == "broke":
