@@ -13,9 +13,9 @@ export var time_between_perturbation_max = 3.0
 export var time_arriving_on_moon_min = 2.0
 export var time_arriving_on_moon_max = 3.0
 
-export var time_small_perturbation_on_moon = 1.0
-export var time_medium_perturbation_on_moon = 2.0
-export var time_big_perturbation_on_moon = 3.0
+export var time_small_perturbation_on_moon = 2.0
+export var time_medium_perturbation_on_moon = 3.0
+export var time_big_perturbation_on_moon = 4.0
 
 # Called when the node enters the scene tree for the first time.
 var rng = RandomNumberGenerator.new()

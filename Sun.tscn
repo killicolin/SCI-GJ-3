@@ -24,6 +24,11 @@ animations = [ {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+time_between_perturbation_min = 15.0
+time_between_perturbation_max = 20.0
+time_small_perturbation_on_moon = 2.0
+time_medium_perturbation_on_moon = 3.0
+time_big_perturbation_on_moon = 4.0
 
 [node name="Timer" type="Timer" parent="."]
 

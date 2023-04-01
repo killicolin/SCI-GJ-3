@@ -6,12 +6,12 @@ extends Control
 # var b = "text"
 
 
-export var burst_delta_time =2000.0
+export var burst_delta_time =500.0
 var null_;
 var burst_time;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	$TextureRect.visible=false
+	$TextureRect.visible=false
 	burst_time = OS.get_ticks_msec()+burst_delta_time
 	print_debug($TextureRect.material.get_shader_param("filter"))
 #	#$TextureRect.visible=false # Replace with function body.
