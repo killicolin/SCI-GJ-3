@@ -3,7 +3,6 @@
 [ext_resource path="res://Sprite_Test/Terrain_.png" type="Texture" id=1]
 
 [node name="Terrain" type="StaticBody2D"]
-position = Vector2( 647, 652.995 )
 z_as_relative = false
 
 [node name="Sprite" type="Sprite" parent="."]

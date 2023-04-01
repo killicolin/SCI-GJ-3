@@ -3,7 +3,6 @@
 [ext_resource path="res://Sprite_Test/Pente_.png" type="Texture" id=1]
 
 [node name="Pente_montée" type="StaticBody2D"]
-position = Vector2( 1658, 475 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
