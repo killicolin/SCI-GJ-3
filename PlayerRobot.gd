@@ -9,10 +9,11 @@ export var gravity = 200
 
 var velocity
 var player = "p1"
-var state = "stop"
+var state = "work"
 
 var robotDisabled = false
 var robotDrive = false
+var robotTurnOff = false
 
 var debugCounter = 0
 
@@ -53,7 +54,7 @@ func get_input():
 				input_direction[0] = 1
 		else:
 			speed = 0
-		
+	
 	velocity = input_direction * speed
 
 func acceleration(delta):
@@ -77,13 +78,15 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 	
 	if not robotDisabled:
-		if robotDrive:
+		if robotDrive and state == "work":
 			acceleration(delta)
 		else:
 			decceleration(delta)
 	
+#	print(player, " \t state: ", state)
 	position.y -= delta * gravity * -1
 	$debugLabel.text = self.state
+
 
 #func check_state():
 #	if state == "broke":
@@ -92,18 +95,20 @@ func _physics_process(delta):
 #		self.modulate = Color(0,0.7,0)
 #	elif state == "stop":
 #		self.modulate = Color(0,0,0.7)
-		
+
+
 func broke():
 	if state == "work":
 		state = "broke"
 		robotDisabled = true
 		$disabledTimer.start()
 
+
 func work():
-	print("working called : "+str(debugCounter))
-	debugCounter += 1
-	if state == "stop":
-		state = "work"
+	if state == "stop" and $turnedOffTimer.time_left == 0:
+		$turnedOffTimer.start()
+		
+
 
 func stop():
 	if state == "work":
@@ -111,11 +116,13 @@ func stop():
 		
 		state = "stop"
 		print("state is "+str(state))
-		
+
+
 func repair():
 	if state == "disabled":
 		state = "work"
-		
+
+
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if player == "p1":
@@ -140,3 +147,8 @@ func _on_disabledTimer_timeout():
 	print("End disability")
 	state = "stop"
 	robotDisabled = false
+
+
+func _on_turnedOffTimer_timeout():
+	print("Rover turn on. Go!")
+	state = "work"

@@ -35,4 +35,9 @@ margin_top = 39.0
 margin_right = 21.0
 margin_bottom = 53.0
 
+[node name="turnedOffTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="disabledTimer" to="." method="_on_disabledTimer_timeout"]
+[connection signal="timeout" from="turnedOffTimer" to="." method="_on_turnedOffTimer_timeout"]
