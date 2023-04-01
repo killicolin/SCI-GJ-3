@@ -22,117 +22,8 @@ extents = Vector2( 21.5, 21.5 )
 [node name="Level2" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="-------------LD-----------------" type="Node" parent="."]
-
-[node name="Carré2" parent="-------------LD-----------------" instance=ExtResource( 5 )]
-position = Vector2( 2411, 635 )
-
-[node name="TriangleBombé4" parent="-------------LD-----------------" instance=ExtResource( 13 )]
-position = Vector2( 2072, 578 )
-
-[node name="Pente_descente" parent="-------------LD-----------------" instance=ExtResource( 9 )]
-position = Vector2( 2884, 564 )
-
-[node name="Carré" parent="-------------LD-----------------" instance=ExtResource( 5 )]
-position = Vector2( -508, 963 )
-
-[node name="Terrain8" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 11096, 1459 )
-
-[node name="Terrain3" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 3440, 744 )
-
-[node name="PenteP_descente" parent="-------------LD-----------------" instance=ExtResource( 6 )]
-position = Vector2( 1103, 840 )
-
-[node name="Pente_montée2" parent="-------------LD-----------------" instance=ExtResource( 7 )]
-position = Vector2( 1656, 791 )
-
-[node name="Pente_descente2" parent="-------------LD-----------------" instance=ExtResource( 9 )]
-position = Vector2( 4281, 991 )
-
-[node name="Triangle" parent="-------------LD-----------------" instance=ExtResource( 10 )]
-position = Vector2( 5097, 1204 )
-
-[node name="TriangleBombé" parent="-------------LD-----------------" instance=ExtResource( 11 )]
-position = Vector2( 3866, 776 )
-
-[node name="PenteP_montée" parent="-------------LD-----------------" instance=ExtResource( 12 )]
-position = Vector2( 6647, 1268 )
-
-[node name="Terrain4" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 5523, 1400 )
-
-[node name="Terrain5" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 6090, 1399 )
-
-[node name="Pente_montée" parent="-------------LD-----------------" instance=ExtResource( 7 )]
-position = Vector2( 7195, 1118 )
-
-[node name="Carré3" parent="-------------LD-----------------" instance=ExtResource( 5 )]
-position = Vector2( 4754, 1260 )
-
-[node name="TriangleBombé3" parent="-------------LD-----------------" instance=ExtResource( 11 )]
-position = Vector2( 7896, 1361 )
-
-[node name="TriangleBombé2" parent="-------------LD-----------------" instance=ExtResource( 11 )]
-position = Vector2( 7612, 1133 )
-
-[node name="PenteP_descente2" parent="-------------LD-----------------" instance=ExtResource( 6 )]
-position = Vector2( 8314, 1525 )
-
-[node name="Terrain6" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 8878, 1656 )
-
-[node name="Pente_montée3" parent="-------------LD-----------------" instance=ExtResource( 7 )]
-position = Vector2( 10539, 1427 )
-scale = Vector2( 1, 0.5 )
-
-[node name="Terrain7" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 9983, 1517 )
-scale = Vector2( 1, 0.5 )
-
-[node name="PenteP_montée2" parent="-------------LD-----------------" instance=ExtResource( 12 )]
-position = Vector2( 9435, 1526 )
-
-[node name="TriangleBombé5" parent="-------------LD-----------------" instance=ExtResource( 13 )]
-position = Vector2( 11522, 1263 )
-
-[node name="TriangleBombé6" parent="-------------LD-----------------" instance=ExtResource( 11 )]
-position = Vector2( 12919, 1065 )
-
-[node name="Terrain9" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 12493, 1033 )
-
-[node name="Pente_montée4" parent="-------------LD-----------------" instance=ExtResource( 7 )]
-position = Vector2( 11935, 1051 )
-
-[node name="PenteP_descente3" parent="-------------LD-----------------" instance=ExtResource( 6 )]
-position = Vector2( 13337, 1230 )
-
-[node name="Pente_montée5" parent="-------------LD-----------------" instance=ExtResource( 7 )]
-position = Vector2( 13890, 1181 )
-
-[node name="Pente_montée6" parent="-------------LD-----------------" instance=ExtResource( 7 )]
-position = Vector2( 14437, 983 )
-
-[node name="Carré5" parent="-------------LD-----------------" instance=ExtResource( 5 )]
-position = Vector2( 15310, 1053 )
-
-[node name="Carré6" parent="-------------LD-----------------" instance=ExtResource( 5 )]
-position = Vector2( 15707, 1052 )
-
-[node name="Carré4" parent="-------------LD-----------------" instance=ExtResource( 5 )]
-position = Vector2( 14911, 1054 )
-
-[node name="Terrain2" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( 542, 872 )
-
-[node name="Terrain" parent="-------------LD-----------------" instance=ExtResource( 8 )]
-position = Vector2( -26, 873 )
-
 [node name="endingArea" type="Area2D" parent="."]
-position = Vector2( 15725, 836 )
+position = Vector2( 15443, 1063 )
 collision_layer = 3
 collision_mask = 3
 __meta__ = {
@@ -150,7 +41,7 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( -675, 729 )
+position = Vector2( -884, 740 )
 
 [node name="mainCamera" type="Camera2D" parent="."]
 offset = Vector2( 0, -200 )
@@ -164,6 +55,115 @@ anchor_top = 1.0
 margin_top = -71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="-------------LD-----------------" type="Node" parent="."]
+
+[node name="Carré2" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( 2129, 862 )
+
+[node name="Pente_descente" parent="-------------LD-----------------" instance=ExtResource( 9 )]
+position = Vector2( 2602, 791 )
+
+[node name="Carré" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( -508, 963 )
+
+[node name="Carré7" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( -906, 964 )
+
+[node name="Terrain8" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 10814, 1686 )
+
+[node name="Terrain3" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 3158, 971 )
+
+[node name="PenteP_descente" parent="-------------LD-----------------" instance=ExtResource( 6 )]
+position = Vector2( 1103, 840 )
+
+[node name="Pente_montée2" parent="-------------LD-----------------" instance=ExtResource( 7 )]
+position = Vector2( 1656, 791 )
+
+[node name="Pente_descente2" parent="-------------LD-----------------" instance=ExtResource( 9 )]
+position = Vector2( 3999, 1218 )
+
+[node name="Triangle" parent="-------------LD-----------------" instance=ExtResource( 10 )]
+position = Vector2( 4815, 1431 )
+
+[node name="TriangleBombé" parent="-------------LD-----------------" instance=ExtResource( 11 )]
+position = Vector2( 3584, 1003 )
+
+[node name="PenteP_montée" parent="-------------LD-----------------" instance=ExtResource( 12 )]
+position = Vector2( 6365, 1495 )
+
+[node name="Terrain4" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 5241, 1627 )
+
+[node name="Terrain5" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 5808, 1626 )
+
+[node name="Pente_montée" parent="-------------LD-----------------" instance=ExtResource( 7 )]
+position = Vector2( 6913, 1345 )
+
+[node name="Carré3" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( 4472, 1487 )
+
+[node name="TriangleBombé3" parent="-------------LD-----------------" instance=ExtResource( 11 )]
+position = Vector2( 7614, 1588 )
+
+[node name="TriangleBombé2" parent="-------------LD-----------------" instance=ExtResource( 11 )]
+position = Vector2( 7330, 1360 )
+
+[node name="PenteP_descente2" parent="-------------LD-----------------" instance=ExtResource( 6 )]
+position = Vector2( 8032, 1752 )
+
+[node name="Terrain6" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 8596, 1883 )
+
+[node name="Pente_montée3" parent="-------------LD-----------------" instance=ExtResource( 7 )]
+position = Vector2( 10257, 1654 )
+scale = Vector2( 1, 0.5 )
+
+[node name="Terrain7" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 9701, 1744 )
+scale = Vector2( 1, 0.5 )
+
+[node name="PenteP_montée2" parent="-------------LD-----------------" instance=ExtResource( 12 )]
+position = Vector2( 9153, 1753 )
+
+[node name="TriangleBombé5" parent="-------------LD-----------------" instance=ExtResource( 13 )]
+position = Vector2( 11240, 1490 )
+
+[node name="TriangleBombé6" parent="-------------LD-----------------" instance=ExtResource( 11 )]
+position = Vector2( 12637, 1292 )
+
+[node name="Terrain9" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 12211, 1260 )
+
+[node name="Pente_montée4" parent="-------------LD-----------------" instance=ExtResource( 7 )]
+position = Vector2( 11653, 1278 )
+
+[node name="PenteP_descente3" parent="-------------LD-----------------" instance=ExtResource( 6 )]
+position = Vector2( 13055, 1457 )
+
+[node name="Pente_montée5" parent="-------------LD-----------------" instance=ExtResource( 7 )]
+position = Vector2( 13608, 1408 )
+
+[node name="Pente_montée6" parent="-------------LD-----------------" instance=ExtResource( 7 )]
+position = Vector2( 14155, 1210 )
+
+[node name="Carré5" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( 15028, 1280 )
+
+[node name="Carré6" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( 15425, 1279 )
+
+[node name="Carré4" parent="-------------LD-----------------" instance=ExtResource( 5 )]
+position = Vector2( 14629, 1281 )
+
+[node name="Terrain2" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( 542, 872 )
+
+[node name="Terrain" parent="-------------LD-----------------" instance=ExtResource( 8 )]
+position = Vector2( -26, 873 )
 
 [node name="backGroundCanva" type="ParallaxBackground" parent="."]
 
