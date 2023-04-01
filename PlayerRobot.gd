@@ -107,12 +107,10 @@ func work():
 	if state == "stop" and $turnedOffTimer.time_left == 0:
 		$turnedOffTimer.start()
 		$AnimatedSprite.play("reboot")
-	elif state == "work":
+	elif state == "work" and robotDisabled == false:
 		$AnimatedSprite.play("work")
 		
 		
-
-
 func stop():
 	if state == "work":
 		state = "stop"
