@@ -22,9 +22,14 @@ var rng = RandomNumberGenerator.new()
 var perturbation = ["small_solar_perturbation","medium_solar_perturbation","big_solar_perturbation"]
 func _ready():
 	print_debug("Start")
+	$SunTrigger.connect("animation_finished", self, "reset_anim")
 	$Timer.set_one_shot(true)
 	$Timer.connect("timeout", self, "choose_perturbation")
-	#determinate_next_perturbation()
+	determinate_next_perturbation()
+
+func reset_anim():
+	$SunTrigger.playing = false
+	$SunTrigger.frame=0
 
 func emit_on():
 	emit_signal("pertubation_on")
@@ -37,7 +42,7 @@ func emit_off():
 func small_solar_perturbation():
 	#print_debug("is_arrive")
 	#play animation
-	$AnimatedSprite.playing = true
+	$SunTrigger.playing = true
 	var time_to_wait = Timer.new()
 	determinate_arriving_on_moon(time_to_wait)
 	#set state perturbating
@@ -55,7 +60,7 @@ func small_solar_perturbation():
 func medium_solar_perturbation():
 	#print_debug("is_arrive")
 	#play animation
-	$AnimatedSprite.playing = true
+	$SunTrigger.playing = true
 	var time_to_wait = Timer.new()
 	determinate_arriving_on_moon(time_to_wait)
 	#set state perturbating
@@ -75,7 +80,7 @@ func medium_solar_perturbation():
 func big_solar_perturbation():
 	#print_debug("is_arrive")
 	#play animation
-	$AnimatedSprite.playing = true
+	$SunTrigger.playing = true
 	var time_to_wait = Timer.new()
 	determinate_arriving_on_moon(time_to_wait)
 	#set state perturbating
