@@ -12,12 +12,11 @@ onready var p2 = robotScene.instance()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
- 
-	
+
 	p2.player = "p2"
 	p1.position = $SpawnPoint.position
 	p2.position = $SpawnPoint.position
+	p2.get_node("AnimatedSprite").offset = Vector2(0,-50)
 	
 	add_child(p1)
 	add_child(p2)

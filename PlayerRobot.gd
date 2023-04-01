@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-
-
 export var speed = 400
 var velocity
 var player = "p1"
@@ -10,14 +8,14 @@ var state = "stop"
 func ready():
 	if player == "p2":
 		$AnimatedSprite.z_index = -1
-		$AnimatedSprite.position = $AnimatedSprite.position + Vector2(0,50)
+		$AnimatedSprite.offset = Vector2(0, -50)
 
 func get_input():
 	var input_direction
 	if player == "p1":
-		input_direction = Input.get_vector("ui_left", "p1_right", "ui_up", "ui_down")
+		input_direction = Input.get_vector("ui_accept", "p1_right", "ui_accept", "ui_accept")
 	elif player == "p2":
-		input_direction = Input.get_vector("ui_left", "p2_right", "ui_up", "ui_down")
+		input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
 		
 	velocity = input_direction * speed
 
@@ -47,8 +45,3 @@ func stop():
 	if state == "work":
 		state = "stop"
 		
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
