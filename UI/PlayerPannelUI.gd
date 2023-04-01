@@ -5,11 +5,11 @@ extends HBoxContainer
 # var a = 2
 # var b = "text"
 
-signal pertubation_on
-signal pertubation_off
+signal pertubation_on_ui
+signal pertubation_off_ui
 
 export var timeBeforeExplosion = 3
-
+export var radiation_duration = 2
 var player = null
 var atomics = true
 # Called when the node enters the scene tree for the first time.
@@ -28,16 +28,20 @@ func _input(event):
 					atomics = false
 					$player_atomics.start()
 					yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
-					emit_signal("pertubation_on")
+					emit_signal("pertubation_on_ui")
+					yield(get_tree().create_timer(radiation_duration), "timeout")
+					emit_signal("pertubation_off_ui")
 					$show_atomics_used.start()
-		elif player == 2:
+		elif player == 3:
 			if Input.is_action_pressed("p2_action"):
 				if atomics:
 					print("p2 acted")
 					atomics = false
 					$player_atomics.start()
 					yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
-					emit_signal("pertubation_on")
+					emit_signal("pertubation_on_ui")
+					yield(get_tree().create_timer(radiation_duration), "timeout")
+					emit_signal("pertubation_off_ui")
 					$show_atomics_used.start()
 
 
