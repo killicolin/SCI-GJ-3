@@ -23,6 +23,7 @@ func _ready():
 
 	for nb in range(0,nbPlayers):
 		var i = UIunit.instance()
+		i.connect("pertubation_on", self, "_on_perturbation_received")
 		i.player = nb + 1
 		$CanvasLayer/UIbar/PanelContainer/HBoxContainer.add_child(i)
 		
