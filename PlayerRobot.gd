@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-export var speed = 400
+export var speed = 10
+export var acceleration = 30
+export var max_speed = 400
 var velocity
 var player = "p1"
 var state = "stop"
@@ -25,6 +27,13 @@ func get_input():
 			input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
 		
 	velocity = input_direction * speed
+
+func starting_acceleration(delta, velocity):
+	if (velocity < max_speed):
+		velocity += delta * acceleration
+		
+		if (velocity > max_speed):
+			velocity = max_speed
 
 func _physics_process(delta):
 	get_input()
