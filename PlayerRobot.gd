@@ -18,7 +18,7 @@ var informationOrderReady = true
 func ready():
 	if player == "p2":
 		$AnimatedSprite.z_index = -1
-		$AnimatedSprite.offset = Vector2(0, -50)
+		$AnimatedSprite.offset = Vector2(0, -500)
 
 func get_input():
 	var input_direction = Vector2(0,0)
