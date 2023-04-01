@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dune Official Soundtrack  Paul's Dream  Hans Zimmer  WaterTower.mp3-e57e93a8f4a288653bd6754a7ce019e7.mp3str"
+
+[deps]
+
+source_file="res://Dune Official Soundtrack  Paul's Dream  Hans Zimmer  WaterTower.mp3"
+dest_files=[ "res://.import/Dune Official Soundtrack  Paul's Dream  Hans Zimmer  WaterTower.mp3-e57e93a8f4a288653bd6754a7ce019e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
