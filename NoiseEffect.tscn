@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shader/NoiseEffect.shader" type="Shader" id=1]
+[ext_resource path="res://ShaderTexture/white.png" type="Texture" id=2]
+[ext_resource path="res://ShaderTexture/noise.jpg" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/filter = 0.4
+shader_param/fps = 11.0
+shader_param/size = 1.0
+shader_param/noise = ExtResource( 3 )
+
+[node name="NoiseEffect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = ExtResource( 2 )
+expand = true
