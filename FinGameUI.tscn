@@ -2,7 +2,7 @@
 
 [ext_resource path="res://FinGameUI.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/space.jpg" type="Texture" id=2]
-[ext_resource path="res://endTheme.tres" type="Theme" id=3]
+[ext_resource path="res://serious_font.tres" type="Theme" id=3]
 
 [node name="FinGame" type="Control"]
 anchor_right = 1.0
@@ -31,22 +31,22 @@ custom_constants/separation = 50
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 574.0
-margin_bottom = 69.0
+margin_bottom = 39.0
 text = "Ressources revendiquées !"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="PlayAgain" type="Button" parent="VBoxContainer"]
-margin_top = 119.0
+margin_top = 89.0
 margin_right = 574.0
-margin_bottom = 158.0
+margin_bottom = 128.0
 text = "Play again"
 
 [node name="MainMenu" type="Button" parent="VBoxContainer"]
-margin_top = 208.0
+margin_top = 178.0
 margin_right = 574.0
-margin_bottom = 247.0
+margin_bottom = 217.0
 text = "Menu"
 
 [connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
