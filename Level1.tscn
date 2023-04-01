@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://mainCamera.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprite/TEST_DECOR/Sol2.png" type="Texture" id=6]
 [ext_resource path="res://Sprite/TEST_DECOR/Espace.png" type="Texture" id=7]
 [ext_resource path="res://Sprite/TEST_DECOR/Sol1.png" type="Texture" id=8]
+[ext_resource path="res://Sounds/Drapeau.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.5, 21.5 )
@@ -84,5 +85,8 @@ motion_mirroring = Vector2( 1440, 0 )
 position = Vector2( -120, -3386 )
 scale = Vector2( 10.7344, 9.92222 )
 texture = ExtResource( 6 )
+
+[node name="PlantFlag" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 
 [connection signal="body_entered" from="endingArea" to="." method="_on_endingArea_body_entered"]

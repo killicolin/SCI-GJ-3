@@ -80,6 +80,9 @@ func _on_perturbation_stopped():
 	print("PERTURBATION IS OFF")
 	
 
+func plant_flag():
+	$PlantFlag.play(0.0)
+	
 func _on_endingArea_body_entered(body):
 	if body is KinematicBody2D:
 		for nb in range(0,nbPlayers):
@@ -88,6 +91,7 @@ func _on_endingArea_body_entered(body):
 		sun.is_finished()
 		body.get_node('WinSound').play(0.0)
 		body.get_node('AnimatedSprite').play("win")
+		body.get_node('AnimatedSprite').connect("animation_finished", self, "plant_flag")
 		body.robotDisabled = true
 		yield(get_tree().create_timer(4.0), "timeout")
 		Singleton.winner = body.player
