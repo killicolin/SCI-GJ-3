@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var speed = 10
-export var acceleration = 50
+export var acceleration = 90
 export var max_speed = 400
 export var gravity = 200
 
@@ -25,11 +25,15 @@ func get_input():
 			input_direction = Input.get_vector("ui_accept", "p1_right", "ui_accept", "ui_accept")
 			if input_direction[0] >= 1:
 				work()
+			else:
+				speed = 10
 	elif player == "p2":
 		if not robotDisabled:
 			input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
 			if input_direction[0] >= 1:
 				work()
+			else:
+				speed = 10
 
 		
 	velocity = input_direction * speed
