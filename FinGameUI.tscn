@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://FinGameUI.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/space.jpg" type="Texture" id=2]
 [ext_resource path="res://serious_font.tres" type="Theme" id=3]
+[ext_resource path="res://Sounds/Bip_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Bip_2.wav" type="AudioStream" id=5]
 
 [node name="FinGame" type="Control"]
 anchor_right = 1.0
@@ -48,6 +50,12 @@ margin_top = 178.0
 margin_right = 574.0
 margin_bottom = 217.0
 text = "Menu"
+
+[node name="bip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="bip1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="mouse_entered" from="VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_mouse_exited"]

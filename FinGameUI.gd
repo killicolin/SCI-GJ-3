@@ -19,9 +19,11 @@ func _ready():
 
 
 func _on_PlayAgain_pressed():
+	$bip.play()
 	get_tree().change_scene("res://Level1.tscn")
 
 func _on_MainMenu_pressed():
+	$bip1.play()
 	get_tree().change_scene("res://Main.tscn")
 
 func _on_PlayAgain_mouse_entered():
