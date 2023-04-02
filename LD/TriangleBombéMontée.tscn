@@ -11,6 +11,7 @@ z_index = -2
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( -142.5, 114, 141, 114, 141, -115, 78, -93, 25, -65, -21, -34, -67, 6, -108, 53 )
 
 [node name="SousSolTriangle" type="Sprite" parent="."]

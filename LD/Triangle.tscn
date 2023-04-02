@@ -13,6 +13,7 @@ texture = ExtResource( 1 )
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( 143, 115, -143, 114.5, -143, -115 )
 
 [node name="SousSolTriangle" type="Sprite" parent="."]
