@@ -73,7 +73,7 @@ margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="player_atomics" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 
 [node name="show_atomics_used" type="Timer" parent="."]
