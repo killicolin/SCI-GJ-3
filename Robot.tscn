@@ -175,6 +175,8 @@ frames = SubResource( 4 )
 animation = "ok"
 offset = Vector2( 0, -80 )
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="disabledTimer" to="." method="_on_disabledTimer_timeout"]
 [connection signal="timeout" from="turnedOnTimer" to="." method="_on_turnedOnTimer_timeout"]

@@ -141,7 +141,7 @@ func broke():
 			awaited_KEY = p2_choices[rng.randi_range(1, (len(p2_choices)-1))]
 		
 		print("@@@ AWAITED KEY "+str(awaited_KEY))
-		$QTE.play(awaited_KEY)
+		$CanvasLayer/QTE.play(awaited_KEY)
 
 func work():
 	if state == "stop" and $turnedOnTimer.time_left == 0 && $AnimatedSprite.animation != "reboot":
@@ -175,10 +175,10 @@ func QTEKeyPlayed(key):
 		if QTE_state == QTE_nb:
 			work()
 			QTE_nb += 1
-			$QTE.play("ok")
+			$CanvasLayer/QTE.play("ok")
 			return
 		awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
-		$QTE.play(awaited_KEY)
+		$CanvasLayer/QTE.play(awaited_KEY)
 
 
 func _input(event):
@@ -187,13 +187,9 @@ func _input(event):
 #			var choices = null
 #			QTEKeyPlayed(event)
 #			if player == "p1":
-#				print("here")
 #				choices = p1_choices
-#				print("@@@ "+str(p1_choices))
 #			elif player == "p2":
-#				print("here")
 #				choices = p2_choices
-#				print("@@@ "+str(p2_choices))
 #
 #			awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
 		if player == "p1":
