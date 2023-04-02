@@ -89,9 +89,8 @@ margin_top = 39.0
 margin_right = 21.0
 margin_bottom = 53.0
 
-[node name="turnedOffTimer" type="Timer" parent="."]
+[node name="turnedOnTimer" type="Timer" parent="."]
 wait_time = 0.75
-
 one_shot = true
 
 [node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
