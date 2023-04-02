@@ -3,6 +3,7 @@
 [ext_resource path="res://Sprite_Test/Carré_2.png" type="Texture" id=1]
 
 [node name="Carré" type="StaticBody2D"]
+z_index = -2
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -130 )
