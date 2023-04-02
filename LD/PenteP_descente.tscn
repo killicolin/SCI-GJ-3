@@ -15,7 +15,7 @@ flip_h = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 34, -1 )
-polygon = PoolVector2Array( -311, 50, 244, 51, 87, 35, 32, 25, -90, 2, -200, -31, -282, -51, -313, -56 )
+polygon = PoolVector2Array( -311, 50, 244, 51, 244, 46, 204, 44, 87, 35, 32, 25, -90, 2, -200, -31, -282, -51, -313, -56 )
 
 [node name="SousSolPente" type="Sprite" parent="."]
 modulate = Color( 0.337255, 0.294118, 0.4, 1 )
