@@ -66,16 +66,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 custom_fonts/normal_font = SubResource( 2 )
-bbcode_text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui deux rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
+bbcode_enabled = true
+bbcode_text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui plusieurs rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
 
 Les contrôles sont :
-Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover et Espace pour activer la compétence.
-Pour le joueur 2 : D pour avancer, S pour éteindre le rover et A pour activer la compétence."
-text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui deux rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
+Pour le joueur [b]1[/b] : [b]Droite[/b] pour avancer, [b]Bas[/b] pour éteindre le rover, [b]Haut[/b] pour activer la compétence et [b]Gauche[/b] pour fake.
+Pour le joueur [b]2[/b] :  [b]D[/b] pour avancer, [b]S[/b] pour éteindre le rover, [b]Z[/b] pour activer la compétence et [b]Q[/b] pour fake.
+Pour le joueur [b]3[/b] :  [b]L[/b] pour avancer, [b]K[/b] pour éteindre le rover, [b]I[/b] pour activer la compétence et [b]J[/b] pour fake.
+Pour le joueur [b]4[/b] :  [b]N[/b] pour avancer, [b]B[/b] pour éteindre le rover, [b]G[/b] pour activer la compétence et [b]V[/b] pour fake."
+text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui plusieurs rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
 
 Les contrôles sont :
-Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover et Espace pour activer la compétence.
-Pour le joueur 2 : D pour avancer, S pour éteindre le rover et A pour activer la compétence."
+Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover, Haut pour activer la compétence et Gauche pour fake.
+Pour le joueur 2 :  D pour avancer, S pour éteindre le rover, Z pour activer la compétence et Q pour fake.
+Pour le joueur 3 :  L pour avancer, K pour éteindre le rover, I pour activer la compétence et J pour fake.
+Pour le joueur 4 :  N pour avancer, B pour éteindre le rover, G pour activer la compétence et V pour fake."
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_top = 442.0
