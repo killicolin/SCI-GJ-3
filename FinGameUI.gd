@@ -9,9 +9,13 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Singleton.winner == "p1":
-		self.get_node("VBoxContainer").get_node("Label").text = "Ressources revendiquées par player 1 !"
+		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 1. Le cratère est à vous !"
 	if Singleton.winner == "p2":
-		self.get_node("VBoxContainer").get_node("Label").text = "Ressources revendiquées par player 2 !"
+		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 2. Le cratère est à vous !"
+	if Singleton.winner == "p3":
+		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 3. Le cratère est à vous !"
+	if Singleton.winner == "p4":
+		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 4. Le cratère est à vous !"
 
 
 func _on_PlayAgain_pressed():
