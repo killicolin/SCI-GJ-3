@@ -7,6 +7,7 @@
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -50 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -50 )
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
