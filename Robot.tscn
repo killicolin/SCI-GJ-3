@@ -169,6 +169,7 @@ stream = ExtResource( 17 )
 frames = SubResource( 3 )
 
 [node name="QTE" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 1, 0 )
 frames = SubResource( 4 )
 animation = "ok"
