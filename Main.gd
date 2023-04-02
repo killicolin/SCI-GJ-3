@@ -15,6 +15,7 @@ func _on_Play_pressed():
 	var s = selectPlayersScene.instance()
 	$VBoxContainer/Play.queue_free()
 	$VBoxContainer.add_child(s)
+	$click.play()
 
 func _on_Play_mouse_entered():
 	$VBoxContainer/Play.modulate = Color(0.5,0.5,0.5)
@@ -25,6 +26,7 @@ func _on_Play_mouse_exited():
 
 
 func _on_Exit_pressed():
+	$click_bis.play()
 	get_tree().quit()
 
 
