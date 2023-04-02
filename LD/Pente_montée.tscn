@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprite_Test/Pente_2.png" type="Texture" id=1]
+[ext_resource path="res://Sprite_Test/Sprite_SousSol/SousSolPente.png" type="Texture" id=2]
 
 [node name="Pente_montée" type="StaticBody2D"]
 z_index = -2
+
+[node name="SousSolPente" type="Sprite" parent="."]
+position = Vector2( 1.99999, 10286.7 )
+scale = Vector2( 1.02048, 58.3825 )
+texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1, -102 )

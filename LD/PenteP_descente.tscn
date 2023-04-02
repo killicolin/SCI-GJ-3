@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprite_Test/PenteP_2.png" type="Texture" id=1]
+[ext_resource path="res://Sprite_Test/Sprite_SousSol/SousSolPente.png" type="Texture" id=2]
 
 [node name="PenteP_descente" type="StaticBody2D"]
 z_index = -2
@@ -14,3 +15,8 @@ flip_h = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 34, -1 )
 polygon = PoolVector2Array( -311, 50, 247, 51, 86, 41, 32, 34, -94, 8, -205, -21, -285, -45, -311, -49 )
+
+[node name="SousSolPente" type="Sprite" parent="."]
+position = Vector2( 1.50001, 10239.7 )
+scale = Vector2( 1.04097, 58.394 )
+texture = ExtResource( 2 )
