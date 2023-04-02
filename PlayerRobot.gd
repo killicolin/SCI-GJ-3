@@ -143,8 +143,8 @@ func broke():
 		elif player == "p2":
 			awaited_KEY = p2_choices[rng.randi_range(1, (len(p2_choices)-1))]
 		
-		print("@@@ AWAITED KEY "+str(awaited_KEY))
-		$CanvasLayer/QTE.play(awaited_KEY)
+#		print("@@@ AWAITED KEY "+str(awaited_KEY))
+#		$CanvasLayer/QTE.play(awaited_KEY)
 
 func work():
 	if state == "stop" and $turnedOnTimer.time_left == 0 && $AnimatedSprite.animation != "reboot":
