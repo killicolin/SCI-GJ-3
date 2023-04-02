@@ -14,6 +14,7 @@ export var timeBeforeExplosion = 3
 export var radiation_duration = 2
 export var fake_info_reload_time = 10
 
+var player_instance
 var player = null
 var atomics = true
 var fake_available = true
@@ -29,35 +30,36 @@ func set_player_label(player_number):
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		for current_player in range(1,3):
-			if player == current_player:
-				if Input.is_action_pressed(actions[player-1]):
-					if atomics:
-						atomics = false
-						$player_atomics.start()
-						$show_atomics_used.start(timeBeforeExplosion)
-						emit_signal("send_reception",player-1)
-						yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
-						if !is_finish_ui :
-							emit_signal("pertubation_on_ui")
-							yield(get_tree().create_timer(radiation_duration), "timeout")
-							emit_signal("pertubation_off_ui")
+		if player_instance.state == "work" :
+			for current_player in range(1,3):
+				if player == current_player:
+					if Input.is_action_pressed(actions[player-1]):
+						if atomics:
+							atomics = false
+							$player_atomics.start()
+							$show_atomics_used.start(timeBeforeExplosion)
+							emit_signal("send_reception",player-1)
+							yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
+							if !is_finish_ui :
+								emit_signal("pertubation_on_ui")
+								yield(get_tree().create_timer(radiation_duration), "timeout")
+								emit_signal("pertubation_off_ui")
+							break
+					elif Input.is_action_pressed(fakes[player-1]):
+						
+						if fake_available :
+							fake_available = false
+							emit_signal("send_reception",player-1)
+							$fake_info_trigger.start(timeBeforeExplosion)
+							$fake_info_reload.start(fake_info_reload_time)
 						break
-				elif Input.is_action_pressed(fakes[player-1]):
-					
-					if fake_available :
-						fake_available = false
-						emit_signal("send_reception",player-1)
-						$fake_info_trigger.start(timeBeforeExplosion)
-						$fake_info_reload.start(fake_info_reload_time)
-					break
 
 func _on_fake_info_trigger_timeout():
 	var a = 0
-	#$Fakes.modulate = Color(0.2,0.2,0.2)
+	$Fakes.modulate = Color(0.2,0.2,0.2)
 
 func _on_fake_info_reload_timeout():
-	#$Fakes.modulate = Color(1,1,1)
+	$Fakes.modulate = Color(1,1,1)
 	fake_available = true
 
 func is_finished():

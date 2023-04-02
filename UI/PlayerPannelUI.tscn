@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprite/rad.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://UI/PlayerPannelUI.gd" type="Script" id=3]
+[ext_resource path="res://Sprite/com.png" type="Texture" id=4]
 
 [node name="Hbox" type="HBoxContainer"]
 anchor_right = 0.2
 anchor_bottom = 1.0
-margin_right = 150.2
+margin_right = 161.2
 margin_bottom = -520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-alignment = 1
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
@@ -27,11 +27,21 @@ valign = 1
 
 [node name="Atomics" type="TextureRect" parent="."]
 margin_left = 82.0
-margin_right = 355.0
+margin_right = 151.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Fakes" type="TextureRect" parent="."]
+margin_left = 155.0
+margin_right = 224.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
@@ -73,6 +83,14 @@ one_shot = true
 [node name="fake_info_trigger" type="Timer" parent="."]
 
 [node name="fake_info_reload" type="Timer" parent="."]
+
+[node name="Spacer" type="Control" parent="."]
+margin_left = 228.0
+margin_right = 366.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 
 [connection signal="timeout" from="player_atomics" to="." method="_on_player_atomics_timeout"]
 [connection signal="timeout" from="show_atomics_used" to="." method="_on_show_atomics_used_timeout"]

@@ -26,6 +26,7 @@ extents = Vector2( 55.75, 61.75 )
 position = Vector2( -7, -2 )
 script = ExtResource( 3 )
 
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_offset = Vector2( 0, -1000 )
 scroll_ignore_camera_zoom = true
@@ -337,5 +338,24 @@ size_flags_vertical = 3
 
 [node name="PlantFlag" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -500 )
+transform = Transform2D( 1, 0, 0, 1, 0, -500 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 15 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 16 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 17 )
 
 [connection signal="body_entered" from="endingArea" to="." method="_on_endingArea_body_entered"]
