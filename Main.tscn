@@ -47,6 +47,7 @@ margin_bottom = 290.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 60
+alignment = 1
 
 [node name="GameName" type="Label" parent="VBoxContainer"]
 margin_right = 1005.0

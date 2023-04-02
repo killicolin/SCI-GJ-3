@@ -4,7 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+onready var selectPlayersScene = preload("res://SelectPlayers.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +12,9 @@ func _ready():
 
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://Level2.tscn")
-
+	var s = selectPlayersScene.instance()
+	$VBoxContainer/Play.queue_free()
+	$VBoxContainer.add_child(s)
 
 func _on_Play_mouse_entered():
 	$VBoxContainer/Play.modulate = Color(0.5,0.5,0.5)

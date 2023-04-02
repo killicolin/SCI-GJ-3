@@ -18,8 +18,10 @@ onready var sun = sunScene.instance()
 
 var p1
 var p2
+var p3
+var p4
 
-var nbPlayers = 4
+var nbPlayers = Singleton.playerNb
 var players =[]
 var players_color =[Color(0.5,0.5,0.7),Color(0.7,0.5,0.5),Color(0.7,0.7,0.5),Color(0.5,0.7,0.5)]
 # Called when the node enters the scene tree for the first time.
