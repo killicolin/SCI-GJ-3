@@ -20,7 +20,7 @@
 [ext_resource path="res://Sounds/Drapeau.wav" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 21.5, 21.5 )
+extents = Vector2( 55.75, 61.75 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 3 )
@@ -153,6 +153,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="endingArea"]
+position = Vector2( -1, 17 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="endingArea"]
@@ -210,3 +211,25 @@ texture = ExtResource( 15 )
 
 [node name="PlantFlag" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.9, 0.9 )
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+
+[connection signal="body_entered" from="endingArea" to="." method="_on_endingArea_body_entered"]

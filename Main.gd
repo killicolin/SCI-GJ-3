@@ -11,13 +11,8 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Play_pressed():
-	get_tree().change_scene("res://Level1.tscn")
+	get_tree().change_scene("res://Level2.tscn")
 
 
 func _on_Play_mouse_entered():

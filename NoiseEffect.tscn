@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Shader/NoiseEffect.shader" type="Shader" id=1]
 [ext_resource path="res://ShaderTexture/white.png" type="Texture" id=2]
 [ext_resource path="res://ShaderTexture/noise.jpg" type="Texture" id=3]
 [ext_resource path="res://NoiseEffect.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/Rad_fort.wav" type="AudioStream" id=5]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 1 )
@@ -28,3 +29,6 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 texture = ExtResource( 2 )
 expand = true
+
+[node name="RadAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

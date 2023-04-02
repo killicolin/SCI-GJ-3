@@ -19,6 +19,17 @@ var informationOrderReady = true
 var exp_speed=1
 var atomics = true
 
+var QTE_nb = 5
+var QTE_state = 0
+var awaited_KEY = null
+var p1_choices = ["p1_left", "p1_right", "p1_up", "p1_down"]
+var p2_choices = ["p2_left", "p2_right", "p2_up", "p2_down"]
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	rng.randomize()
+
 #func ready():
 #	if player == "p1":
 #		$AnimatedSprite.z_index = 10
@@ -121,14 +132,22 @@ func broke():
 		robotDisabled = true
 		$disabledTimer.start()
 		asset_broke_run()
-
+		
+		var awaited_KEY = null
+		
+		if player == "p1":
+			awaited_KEY = p1_choices[rng.randi_range(1, (len(p1_choices)-1))]
+		elif player == "p2":
+			awaited_KEY = p2_choices[rng.randi_range(1, (len(p2_choices)-1))]
+		
+		print("@@@ AWAITED KEY "+str(awaited_KEY))
+		$QTE.play(awaited_KEY)
 
 func work():
 	if state == "stop" and $turnedOnTimer.time_left == 0 && $AnimatedSprite.animation != "reboot":
 		$turnedOnTimer.start()
 	elif state == "work" and robotDisabled == false:
 		asset_driving_run()
-		
 		
 func stop():
 	if state == "work":
@@ -142,8 +161,41 @@ func repair():
 		yield(get_tree().create_timer(1.0), "timeout")
 		state = "work"
 
+func QTEKeyPlayed(key):
+	print(key)
+	print("QTE ENTERED")
+	var choices = []
+	if player == "p1":
+		choices = p1_choices
+	elif player == "p2":
+		choices == p2_choices
+		
+	if key == awaited_KEY:
+		QTE_state += 1
+		if QTE_state == QTE_nb:
+			work()
+			QTE_nb += 1
+			$QTE.play("ok")
+			return
+		awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
+		$QTE.play(awaited_KEY)
+
+
 func _input(event):
 	if event is InputEventKey and event.pressed:
+#		if state == "broke":
+#			var choices = null
+#			QTEKeyPlayed(event)
+#			if player == "p1":
+#				print("here")
+#				choices = p1_choices
+#				print("@@@ "+str(p1_choices))
+#			elif player == "p2":
+#				print("here")
+#				choices = p2_choices
+#				print("@@@ "+str(p2_choices))
+#
+#			awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
 		if player == "p1":
 			if Input.is_action_pressed("p1_stop"):
 				stop()
@@ -165,3 +217,4 @@ func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "reboot":
 		state = "work"
 		asset_driving_run()
+	
