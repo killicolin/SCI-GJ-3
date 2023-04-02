@@ -8,13 +8,13 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Singleton.winner == "p1":
+	if Singleton.winner == 0:
 		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 1. Le cratère est à vous !"
-	if Singleton.winner == "p2":
+	if Singleton.winner == 1:
 		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 2. Le cratère est à vous !"
-	if Singleton.winner == "p3":
+	if Singleton.winner == 2:
 		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 3. Le cratère est à vous !"
-	if Singleton.winner == "p4":
+	if Singleton.winner == 3:
 		self.get_node("VBoxContainer").get_node("Label").text = "Drapeau planté par player 4. Le cratère est à vous !"
 
 
