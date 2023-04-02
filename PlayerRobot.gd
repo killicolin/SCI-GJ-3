@@ -15,6 +15,8 @@ var robotDisabled = false
 var robotDrive = false
 var robotTurnOff = false
 
+var floor_normal = Vector2.UP
+
 var informationOrderReady = true
 var exp_speed=1
 var atomics = true
@@ -90,12 +92,16 @@ func _physics_process(delta):
 	get_input()
 	#check_state()
 	move_and_slide(velocity)
+#	if is_on_floor():
+	
 	
 	if not robotDisabled:
 		if robotDrive and state == "work":
 			acceleration(delta)
 		else:
 			decceleration(delta)
+	
+
 	
 #	print(player, " \t state: ", state)
 	position.y -= delta * gravity * -1

@@ -185,6 +185,9 @@ animation = "ok"
 offset = Vector2( 0, -80 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 28 )
+enabled = true
+collision_mask = 7
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="disabledTimer" to="." method="_on_disabledTimer_timeout"]
