@@ -15,6 +15,7 @@ export var radiation_duration = 2
 export var fake_info_reload_time = 10
 
 var player_instance
+var nb_player
 var player = null
 var atomics = true
 var fake_available = true
@@ -31,7 +32,7 @@ func set_player_label(player_number):
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if player_instance.state == "work" :
-			for current_player in range(1,3):
+			for current_player in range(1,nb_player+1):
 				if player == current_player:
 					if Input.is_action_pressed(actions[player-1]):
 						if atomics:

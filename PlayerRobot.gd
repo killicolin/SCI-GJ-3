@@ -8,7 +8,7 @@ export var max_speed = 400
 export var gravity = 200
 
 var velocity
-var player = "p1"
+var player
 var state = "work"
 
 var robotDisabled = false
@@ -29,6 +29,8 @@ var color_emit = [Color(0,0,0.7),Color(0.7,0,0),Color(0.7,0.7,0),Color(0,0.7,0)]
 var p1_choices = ["p1_left", "p1_right", "p1_up", "p1_down"]
 var p2_choices = ["p2_left", "p2_right", "p2_up", "p2_down"]
 
+var right_actions = ["p1_right","p2_right","p3_right","p4_right"]
+var stop_actions = ["p1_stop","p2_stop","p3_stop","p4_stop"]
 
 var rng = RandomNumberGenerator.new()
 
@@ -44,30 +46,18 @@ func _ready():
 #		$AnimatedSprite.offset = Vector2(0, -500)
 
 func get_input():
+	print(player)
 	var input_direction = Vector2(0,0)
-	if player == "p1":
-		if not robotDisabled:
-			input_direction = Input.get_vector("ui_accept", "p1_right", "ui_accept", "ui_accept")
-			if input_direction[0] >= 1:
-				work()
-				robotDrive = true
-			else:
-				robotDrive = false
-				input_direction[0] = 1
+	if not robotDisabled:
+		input_direction = Input.get_vector("ui_accept", right_actions[player], "ui_accept", "ui_accept")
+		if input_direction[0] >= 1:
+			work()
+			robotDrive = true
 		else:
-			speed = 0
-	
-	elif player == "p2":
-		if not robotDisabled:
-			input_direction = Input.get_vector("ui_accept", "p2_right", "ui_accept", "ui_accept")
-			if input_direction[0] >= 1:
-				work()
-				robotDrive = true
-			else:
-				robotDrive = false
-				input_direction[0] = 1
-		else:
-			speed = 0
+			robotDrive = false
+			input_direction[0] = 1
+	else:
+		speed = 0
 	
 	velocity = input_direction * speed
 
@@ -144,10 +134,10 @@ func broke():
 		
 		var awaited_KEY = null
 		
-		if player == "p1":
-			awaited_KEY = p1_choices[rng.randi_range(1, (len(p1_choices)-1))]
-		elif player == "p2":
-			awaited_KEY = p2_choices[rng.randi_range(1, (len(p2_choices)-1))]
+#		if player == "p1":
+#			awaited_KEY = p1_choices[rng.randi_range(1, (len(p1_choices)-1))]
+#		elif player == "p2":
+#			awaited_KEY = p2_choices[rng.randi_range(1, (len(p2_choices)-1))]
 		
 #		print("@@@ AWAITED KEY "+str(awaited_KEY))
 #		$CanvasLayer/QTE.play(awaited_KEY)
@@ -170,43 +160,10 @@ func repair():
 		yield(get_tree().create_timer(1.0), "timeout")
 		state = "work"
 
-func QTEKeyPlayed(key):
-	print(key)
-	print("QTE ENTERED")
-	var choices = []
-	if player == "p1":
-		choices = p1_choices
-	elif player == "p2":
-		choices == p2_choices
-		
-	if key == awaited_KEY:
-		QTE_state += 1
-		if QTE_state == QTE_nb:
-			work()
-			QTE_nb += 1
-			$CanvasLayer/QTE.play("ok")
-			return
-		awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
-		$CanvasLayer/QTE.play(awaited_KEY)
-
-
 func _input(event):
 	if event is InputEventKey and event.pressed:
-#		if state == "broke":
-#			var choices = null
-#			QTEKeyPlayed(event)
-#			if player == "p1":
-#				choices = p1_choices
-#			elif player == "p2":
-#				choices = p2_choices
-#
-#			awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
-		if player == "p1":
-			if Input.is_action_pressed("p1_stop"):
-				stop()
-		elif player == "p2":
-			if Input.is_action_pressed("p2_stop"):
-				stop()
+		if Input.is_action_pressed(stop_actions[player]):
+			stop()
 
 func _on_disabledTimer_timeout():
 	print("End disability")

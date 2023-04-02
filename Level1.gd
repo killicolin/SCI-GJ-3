@@ -19,19 +19,21 @@ onready var sun = sunScene.instance()
 var p1
 var p2
 
-var nbPlayers = 2
+var nbPlayers = 4
 var players =[]
 var players_color =[Color(0.5,0.5,0.7),Color(0.7,0.5,0.5),Color(0.7,0.7,0.5),Color(0.5,0.7,0.5)]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for nb in range(0,nbPlayers):
 		players.append(robotScene.instance())
+		players[nb].player = nb
 		add_child(players[nb])
 	
 	p1=players[0]
 	p2=players[1]
 	for nb in range(0,nbPlayers):
 		var i = UIunit.instance()
+		i.nb_player=nbPlayers
 		i.player_instance=players[nb]
 		i.connect("pertubation_on_ui", self, "_on_perturbation_received")
 		i.connect("pertubation_on_ui", noise, "is_on_perturbating")
@@ -41,20 +43,18 @@ func _ready():
 		for pl in range(0,nbPlayers):
 			i.connect("send_reception",players[pl],"reception_is_emit")
 		i.player = nb + 1
+		
 		$CanvasLayer/UIbar/PanelContainer/HBoxContainer.add_child(i)
 	
 	for nb in range(0,nbPlayers):
 		players[nb].position = $SpawnPoint.position
-		players[nb].get_node("AnimatedSprite").offset = Vector2(0,-100) + nb * Vector2(0,-60)
-		players[nb].get_node("AnimReception").offset = Vector2(0,-100) + nb * Vector2(0,-60)
+		players[nb].get_node("AnimatedSprite").offset = Vector2(0,-100) + nb * Vector2(0,-45)
+		players[nb].get_node("AnimReception").offset = Vector2(0,-100) + nb * Vector2(0,-45)
 		players[nb].get_node("AnimatedSprite").modulate = players_color[nb]
-		players[nb].get_node("AnimatedSprite").z_index = -nb
-		
+		players[nb].get_node("AnimatedSprite").z_index = 10-nb
 
-	p2.player = "p2"
-
-	$mainCamera.p1 = p1 
-	$mainCamera.p2 = p2
+	$mainCamera.player_nb = nbPlayers 
+	$mainCamera.player = players
 	
 	sun.connect("pertubation_on", self, "_on_perturbation_received")
 	sun.connect("pertubation_off", self, "_on_perturbation_stopped")
@@ -82,9 +82,8 @@ func replace_sun():
 	sun.position = map_pos
 
 func _on_perturbation_received():
-	print("PERTURBATION IS ON")
-	p1.broke()
-	p2.broke()
+	for nb in range(0,nbPlayers):
+		players[nb].broke()
 
 func _on_perturbation_stopped():
 	print("PERTURBATION IS OFF")
