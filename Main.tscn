@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://Sprite/Ciel_sans_soleil.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/Menu_du_jeu.png" type="Texture" id=2]
 [ext_resource path="res://serious_font.tres" type="Theme" id=3]
 [ext_resource path="res://Fonts/kirifont/KiriFont.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://Fonts/xolonium/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
