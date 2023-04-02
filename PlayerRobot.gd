@@ -5,7 +5,7 @@ export var acceleration = 90
 export var decceleration_factor = 3
 export var min_speed = 0
 export var max_speed = 400
-export var gravity = 200
+export var gravity = 300
 
 var velocity
 var player
