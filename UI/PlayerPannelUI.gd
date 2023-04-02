@@ -32,12 +32,12 @@ func _input(event):
 					if atomics:
 						atomics = false
 						$player_atomics.start()
+						$show_atomics_used.start(timeBeforeExplosion)
 						yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
 						if !is_finish_ui :
 							emit_signal("pertubation_on_ui")
 							yield(get_tree().create_timer(radiation_duration), "timeout")
 							emit_signal("pertubation_off_ui")
-						$show_atomics_used.start()
 						break
 				elif Input.is_action_pressed(fakes[player-1]):
 					$fake_info_trigger.start(timeBeforeExplosion)

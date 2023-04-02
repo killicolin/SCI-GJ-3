@@ -32,7 +32,7 @@ func _ready():
 	$OnMoon.connect("timeout", self, "emit_on")
 	$Perturbating.set_one_shot(true)
 	$Perturbating.connect("timeout", self, "emit_off")
-	determinate_next_perturbation()
+	#determinate_next_perturbation()
 
 func is_finished():
 	is_finish=true
@@ -46,13 +46,11 @@ func emit_on():
 	if !is_finish :
 		emit_signal("pertubation_on")
 		$SunExplosionAudio.stop()
-		$RadAudio.play(0.0)
 		$Perturbating.start(choose_time)
 		print("signal on")
 
 func emit_off():
 	emit_signal("pertubation_off")
-	$RadAudio.stop()
 	determinate_next_perturbation()
 	print("signal off")
 	

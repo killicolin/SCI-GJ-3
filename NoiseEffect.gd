@@ -17,11 +17,13 @@ func _ready():
 #	#$TextureRect.visible=false # Replace with function body.
 
 func is_on_perturbating():
+	$RadAudio.play(0.0)
 	burst_time = OS.get_ticks_msec()+burst_delta_time
 	$TextureRect.visible=true
 	$TextureRect.material.set_shader_param("filter",0.2)
 
 func is_off_perturbating():
+	$RadAudio.stop()
 	$TextureRect.visible=false
 
 func _physics_process(delta):
