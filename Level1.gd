@@ -91,6 +91,7 @@ func _on_endingArea_body_entered(body):
 		sun.is_finished()
 		body.get_node('WinSound').play(0.0)
 		body.get_node('AnimatedSprite').play("win")
+		body.get_node('DrivingSound').stop()
 		body.get_node('AnimatedSprite').connect("animation_finished", self, "plant_flag")
 		body.robotDisabled = true
 		yield(get_tree().create_timer(4.0), "timeout")

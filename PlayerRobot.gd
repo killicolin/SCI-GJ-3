@@ -96,7 +96,6 @@ func _physics_process(delta):
 #	elif state == "stop":
 #		self.modulate = Color(0,0,0.7)
 
-
 func asset_broke_run():
 	$AnimatedSprite.play("broke")
 	$ExplodeSound.play(0.0)
@@ -107,11 +106,14 @@ func asset_reboot_run():
 
 func asset_driving_run():
 	$AnimatedSprite.play("work")
-#	$DrivingSound.play(0.0)
+	if !$DrivingSound.playing :
+		$DrivingSound.play(0.0)
 	
 func asset_stop_run():
 	$AnimatedSprite.play("stop")
 	$PowerDownSound.play(0.0)
+	if $DrivingSound.playing :
+		$DrivingSound.stop()
 	
 func broke():
 	if state == "work":
@@ -122,9 +124,8 @@ func broke():
 
 
 func work():
-	if state == "stop" and $turnedOffTimer.time_left == 0:
-		$turnedOffTimer.start()
-		asset_reboot_run()
+	if state == "stop" and $turnedOnTimer.time_left == 0 && $AnimatedSprite.animation != "reboot":
+		$turnedOnTimer.start()
 	elif state == "work" and robotDisabled == false:
 		asset_driving_run()
 		
@@ -138,7 +139,6 @@ func stop():
 func repair():
 	if state == "disabled":
 		asset_reboot_run()
-		
 		yield(get_tree().create_timer(1.0), "timeout")
 		state = "work"
 
@@ -156,6 +156,12 @@ func _on_disabledTimer_timeout():
 	state = "stop"
 	robotDisabled = false
 
-func _on_turnedOffTimer_timeout():
+func _on_turnedOnTimer_timeout():
 	print("Rover turn on. Go!")
-	state = "work"
+	asset_reboot_run()
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "reboot":
+		state = "work"
+		asset_driving_run()
