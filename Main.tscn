@@ -46,7 +46,7 @@ margin_right = 502.5
 margin_bottom = 290.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 100
+custom_constants/separation = 60
 
 [node name="GameName" type="Label" parent="VBoxContainer"]
 margin_right = 1005.0
@@ -56,17 +56,23 @@ text = "1 ! 2 ! 3 ! Rover"
 align = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 165.0
+margin_top = 125.0
 margin_right = 1005.0
-margin_bottom = 441.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 custom_fonts/normal_font = SubResource( 2 )
-text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui deux rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps...
+bbcode_text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui deux rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
 
 Les contrôles sont :
 Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover et Espace pour activer la compétence.
-Pour le joueur 2 : \"D\" pour avancer, \"S\" pour éteindre le rover et \"A\" pour activer la compétence."
+Pour le joueur 2 : D pour avancer, S pour éteindre le rover et A pour activer la compétence."
+text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui deux rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
+
+Les contrôles sont :
+Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover et Espace pour activer la compétence.
+Pour le joueur 2 : D pour avancer, S pour éteindre le rover et A pour activer la compétence."
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_top = 541.0
