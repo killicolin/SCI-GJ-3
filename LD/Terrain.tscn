@@ -12,9 +12,10 @@ position = Vector2( 1, -111 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -62, -74, -40, -74, 43, -87, 61, -87, 159, -73.5, 195, -71, 233, -74, 284, -82, 284, 88, -284, 89, -283, -81, -254, -85, -214, -88, -148, -89 )
+polygon = PoolVector2Array( -62, -77, -40, -78, 42, -86, 82, -86, 157, -77, 198, -76, 233, -77, 284, -82, 284, 88, -284, 89, -282, -83, -254, -87, -214, -88, -149, -84 )
 
 [node name="SousSolTerrain" type="Sprite" parent="."]
-position = Vector2( 0, 18368.3 )
-scale = Vector2( 1, 104.749 )
+modulate = Color( 0.337255, 0.294118, 0.4, 1 )
+position = Vector2( 0.99998, 18368 )
+scale = Vector2( 1, 104.751 )
 texture = ExtResource( 2 )

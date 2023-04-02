@@ -7,8 +7,9 @@
 z_index = -2
 
 [node name="SousSolPente" type="Sprite" parent="."]
-position = Vector2( 1.99999, 10286.7 )
-scale = Vector2( 1.02048, 58.3825 )
+modulate = Color( 0.337255, 0.294118, 0.4, 1 )
+position = Vector2( 0.999994, 10285.7 )
+scale = Vector2( 1.026, 58.383 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

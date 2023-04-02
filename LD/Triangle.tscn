@@ -13,9 +13,10 @@ texture = ExtResource( 1 )
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 143, 114.5, -143, 114.5, -143, -115 )
+polygon = PoolVector2Array( 143, 115, -143, 114.5, -143, -115 )
 
 [node name="SousSolTriangle" type="Sprite" parent="."]
-position = Vector2( -4.91142e-05, 10585 )
-scale = Vector2( 1.0106, 60 )
+modulate = Color( 0.337255, 0.294118, 0.4, 1 )
+position = Vector2( -0.962339, 10585 )
+scale = Vector2( 1.00327, 60 )
 texture = ExtResource( 2 )
