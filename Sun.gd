@@ -6,6 +6,8 @@ extends Node2D
 # var b = "text"
 signal pertubation_on
 signal pertubation_off
+
+
 # GD parameter
 export var time_between_perturbation_min = 2.0
 export var time_between_perturbation_max = 3.0
@@ -32,7 +34,7 @@ func _ready():
 	$OnMoon.connect("timeout", self, "emit_on")
 	$Perturbating.set_one_shot(true)
 	$Perturbating.connect("timeout", self, "emit_off")
-	#determinate_next_perturbation()
+	determinate_next_perturbation()
 
 func is_finished():
 	is_finish=true

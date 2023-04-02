@@ -22,8 +22,11 @@ var atomics = true
 var QTE_nb = 5
 var QTE_state = 0
 var awaited_KEY = null
+var color_emit = [Color(0,0,0.7),Color(0.7,0,0),Color(0.7,0.7,0),Color(0,0.7,0)]
+
 var p1_choices = ["p1_left", "p1_right", "p1_up", "p1_down"]
 var p2_choices = ["p2_left", "p2_right", "p2_up", "p2_down"]
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -141,7 +144,7 @@ func broke():
 			awaited_KEY = p2_choices[rng.randi_range(1, (len(p2_choices)-1))]
 		
 		print("@@@ AWAITED KEY "+str(awaited_KEY))
-		$QTE.play(awaited_KEY)
+		$CanvasLayer/QTE.play(awaited_KEY)
 
 func work():
 	if state == "stop" and $turnedOnTimer.time_left == 0 && $AnimatedSprite.animation != "reboot":
@@ -175,10 +178,10 @@ func QTEKeyPlayed(key):
 		if QTE_state == QTE_nb:
 			work()
 			QTE_nb += 1
-			$QTE.play("ok")
+			$CanvasLayer/QTE.play("ok")
 			return
 		awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
-		$QTE.play(awaited_KEY)
+		$CanvasLayer/QTE.play(awaited_KEY)
 
 
 func _input(event):
@@ -187,13 +190,9 @@ func _input(event):
 #			var choices = null
 #			QTEKeyPlayed(event)
 #			if player == "p1":
-#				print("here")
 #				choices = p1_choices
-#				print("@@@ "+str(p1_choices))
 #			elif player == "p2":
-#				print("here")
 #				choices = p2_choices
-#				print("@@@ "+str(p2_choices))
 #
 #			awaited_KEY = choices[rng.randi_range(1, (len(choices)-1))]
 		if player == "p1":
@@ -212,9 +211,14 @@ func _on_turnedOnTimer_timeout():
 	print("Rover turn on. Go!")
 	asset_reboot_run()
 
+func reception_is_emit(player_index):
+	if $AnimReception.playing :
+		$AnimReception.stop()
+		$AnimReception.frame=0
+	$AnimReception.modulate=color_emit[player_index]
+	$AnimReception.play()
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "reboot":
 		state = "work"
 		asset_driving_run()
-	

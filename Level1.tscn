@@ -64,8 +64,8 @@ motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 1440, 0 )
 
 [node name="background" type="Sprite" parent="backGroundCanva/ParallaxLayer"]
-position = Vector2( 1035, -179 )
-scale = Vector2( 10.7344, 9.92222 )
+position = Vector2( 900.474, 251.301 )
+scale = Vector2( 10.6687, 10.2957 )
 texture = ExtResource( 8 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="backGroundCanva"]

@@ -14,9 +14,9 @@
 [ext_resource path="res://LD/PenteP_montée.tscn" type="PackedScene" id=12]
 [ext_resource path="res://LD/TriangleBombéMontée.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI/InGameUi.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sprite/TEST_DECOR/Sol2.png" type="Texture" id=15]
-[ext_resource path="res://Sprite/TEST_DECOR/Espace.png" type="Texture" id=16]
-[ext_resource path="res://Sprite/TEST_DECOR/Sol1.png" type="Texture" id=17]
+[ext_resource path="res://Sprite/parallax/Parallax_Plan_1.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/parallax/Parallax_Plan_2.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/parallax/Parallax_Plan_3.png" type="Texture" id=17]
 [ext_resource path="res://Sounds/Drapeau.wav" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -288,6 +288,29 @@ offset = Vector2( 0, -200 )
 current = true
 script = ExtResource( 1 )
 
+[node name="backGroundCanva" type="ParallaxBackground" parent="mainCamera"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="mainCamera/backGroundCanva"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="background" type="Sprite" parent="mainCamera/backGroundCanva/ParallaxLayer"]
+texture = ExtResource( 15 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="mainCamera/backGroundCanva"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="background" type="Sprite" parent="mainCamera/backGroundCanva/ParallaxLayer2"]
+texture = ExtResource( 16 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="mainCamera/backGroundCanva"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="background" type="Sprite" parent="mainCamera/backGroundCanva/ParallaxLayer3"]
+texture = ExtResource( 17 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIbar" parent="CanvasLayer" instance=ExtResource( 14 )]
@@ -295,36 +318,6 @@ anchor_top = 1.0
 margin_top = -71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="backGroundCanva" type="ParallaxBackground" parent="."]
-visible = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="backGroundCanva"]
-motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 1440, 0 )
-
-[node name="background" type="Sprite" parent="backGroundCanva/ParallaxLayer"]
-position = Vector2( 1035, -179 )
-scale = Vector2( 10.7344, 9.92222 )
-texture = ExtResource( 17 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="backGroundCanva"]
-motion_scale = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1440, 0 )
-
-[node name="background" type="Sprite" parent="backGroundCanva/ParallaxLayer2"]
-position = Vector2( 484, -3991 )
-scale = Vector2( 10.7344, 9.92222 )
-texture = ExtResource( 16 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="backGroundCanva"]
-motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 1440, 0 )
-
-[node name="background" type="Sprite" parent="backGroundCanva/ParallaxLayer3"]
-position = Vector2( -120, -3386 )
-scale = Vector2( 10.7344, 9.92222 )
-texture = ExtResource( 15 )
 
 [node name="PlantFlag" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )

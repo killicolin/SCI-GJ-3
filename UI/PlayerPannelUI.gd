@@ -5,15 +5,18 @@ extends HBoxContainer
 # var a = 2
 # var b = "text"
 
+var player_emit = 0
 signal pertubation_on_ui
 signal pertubation_off_ui
+signal send_reception(player_emit)
 
 export var timeBeforeExplosion = 3
 export var radiation_duration = 2
-export var fake_info_reload = 2
+export var fake_info_reload_time = 10
 
 var player = null
 var atomics = true
+var fake_available = true
 var is_finish_ui = false
 var actions= ["p1_action","p2_action","p3_action","p4_action"]
 var fakes= ["p1_fake","p2_fake","p3_fake","p4_fake"]
@@ -33,6 +36,7 @@ func _input(event):
 						atomics = false
 						$player_atomics.start()
 						$show_atomics_used.start(timeBeforeExplosion)
+						emit_signal("send_reception",player-1)
 						yield(get_tree().create_timer(timeBeforeExplosion), "timeout")
 						if !is_finish_ui :
 							emit_signal("pertubation_on_ui")
@@ -40,12 +44,21 @@ func _input(event):
 							emit_signal("pertubation_off_ui")
 						break
 				elif Input.is_action_pressed(fakes[player-1]):
-					$fake_info_trigger.start(timeBeforeExplosion)
-					yield($fake_info_trigger, "timeout")
+					
+					if fake_available :
+						fake_available = false
+						emit_signal("send_reception",player-1)
+						$fake_info_trigger.start(timeBeforeExplosion)
+						$fake_info_reload.start(fake_info_reload_time)
 					break
 
-func player_visual_communiaction():
-	var a= 0
+func _on_fake_info_trigger_timeout():
+	var a = 0
+	#$Fakes.modulate = Color(0.2,0.2,0.2)
+
+func _on_fake_info_reload_timeout():
+	#$Fakes.modulate = Color(1,1,1)
+	fake_available = true
 
 func is_finished():
 	is_finish_ui = true

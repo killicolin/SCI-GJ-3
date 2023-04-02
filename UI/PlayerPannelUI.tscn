@@ -76,3 +76,5 @@ one_shot = true
 
 [connection signal="timeout" from="player_atomics" to="." method="_on_player_atomics_timeout"]
 [connection signal="timeout" from="show_atomics_used" to="." method="_on_show_atomics_used_timeout"]
+[connection signal="timeout" from="fake_info_trigger" to="." method="_on_fake_info_trigger_timeout"]
+[connection signal="timeout" from="fake_info_reload" to="." method="_on_fake_info_reload_timeout"]
