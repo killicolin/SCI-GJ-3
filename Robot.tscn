@@ -137,7 +137,7 @@ animations = [ {
 "name": "ok",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 36 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 36 ) ],
 "loop": true,
 "name": "zap",
 "speed": 5.0
@@ -208,9 +208,9 @@ enabled = true
 collision_mask = 7
 
 [node name="zapSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.921569, 0.909804, 0.223529, 1 )
 frames = SubResource( 5 )
 animation = "ok"
-offset = Vector2( 10, -90 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="disabledTimer" to="." method="_on_disabledTimer_timeout"]

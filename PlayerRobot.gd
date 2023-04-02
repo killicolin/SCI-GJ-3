@@ -167,7 +167,7 @@ func _input(event):
 			stop()
 
 func _on_disabledTimer_timeout():
-	print("End disability")
+	$zapSprite.play("ok")
 	state = "stop"
 	robotDisabled = false
 

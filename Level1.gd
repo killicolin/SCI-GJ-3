@@ -44,6 +44,7 @@ func _ready():
 		players[nb].position = $SpawnPoint.position
 		players[nb].get_node("AnimatedSprite").offset = Vector2(0,-100) + nb * Vector2(0,-45)
 		players[nb].get_node("AnimReception").offset = Vector2(0,-100) + nb * Vector2(0,-45)
+		players[nb].get_node("zapSprite").offset = Vector2(0,-100) + nb * Vector2(0,-45)
 		players[nb].get_node("AnimatedSprite").modulate = players_color[nb]
 		players[nb].get_node("AnimatedSprite").z_index = 10-nb
 
