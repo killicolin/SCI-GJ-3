@@ -165,6 +165,7 @@ wait_time = 10.0
 one_shot = true
 
 [node name="debugLabel" type="Label" parent="."]
+visible = false
 margin_left = -19.0
 margin_top = 39.0
 margin_right = 21.0
