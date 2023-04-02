@@ -13,14 +13,23 @@ onready var UIunit = load("res://UI/PlayerPannelUI.tscn")
 
 onready var noise = noiseScene.instance()
 onready var sun = sunScene.instance()
-onready var p1 = robotScene.instance()
-onready var p2 = robotScene.instance()
+#onready var p1 = robotScene.instance()
+#onready var p2 = robotScene.instance()
+
+var p1
+var p2
 
 var nbPlayers = 2
-
+var players =[]
+var players_color =[Color(0.5,0.5,0.7),Color(0.7,0.5,0.5),Color(0.7,0.7,0.5),Color(0.5,0.7,0.5)]
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	for nb in range(0,nbPlayers):
+		players.append(robotScene.instance())
+		add_child(players[nb])
+	
+	p1=players[0]
+	p2=players[1]
 	for nb in range(0,nbPlayers):
 		var i = UIunit.instance()
 		i.connect("pertubation_on_ui", self, "_on_perturbation_received")
@@ -28,20 +37,20 @@ func _ready():
 		
 		i.connect("pertubation_off_ui", self, "_on_perturbation_stopped")
 		i.connect("pertubation_off_ui", noise, "is_off_perturbating")
+		for pl in range(0,nbPlayers):
+			i.connect("send_reception",players[pl],"reception_is_emit")
 		i.player = nb + 1
 		$CanvasLayer/UIbar/PanelContainer/HBoxContainer.add_child(i)
-		
-	p2.player = "p2"
-	p1.position = $SpawnPoint.position
-	p1.get_node("AnimatedSprite").offset = Vector2(0,-100)
-	p1.get_node("AnimatedSprite").modulate = Color(0,0,0.7)
-	p2.position = $SpawnPoint.position
-	p2.get_node("AnimatedSprite").offset = Vector2(0,-200)
-	p2.get_node("AnimatedSprite").z_index = -1
-	p2.get_node("AnimatedSprite").modulate = Color(0.7,0,0)
 	
-	add_child(p1)
-	add_child(p2)
+	for nb in range(0,nbPlayers):
+		players[nb].position = $SpawnPoint.position
+		players[nb].get_node("AnimatedSprite").offset = Vector2(0,-100) + nb * Vector2(0,-60)
+		players[nb].get_node("AnimReception").offset = Vector2(0,-100) + nb * Vector2(0,-60)
+		players[nb].get_node("AnimatedSprite").modulate = players_color[nb]
+		players[nb].get_node("AnimatedSprite").z_index = -nb
+		
+
+	p2.player = "p2"
 
 	$mainCamera.p1 = p1 
 	$mainCamera.p2 = p2
