@@ -13,15 +13,9 @@ onready var UIunit = load("res://UI/PlayerPannelUI.tscn")
 
 onready var noise = noiseScene.instance()
 onready var sun = sunScene.instance()
-#onready var p1 = robotScene.instance()
-#onready var p2 = robotScene.instance()
-
-var p1
-var p2
-var p3
-var p4
 
 var nbPlayers = Singleton.playerNb
+
 var players =[]
 var players_color =[Color(0.5,0.5,0.7),Color(0.7,0.5,0.5),Color(0.7,0.7,0.5),Color(0.5,0.7,0.5)]
 # Called when the node enters the scene tree for the first time.
@@ -30,9 +24,7 @@ func _ready():
 		players.append(robotScene.instance())
 		players[nb].player = nb
 		add_child(players[nb])
-	
-	p1=players[0]
-	p2=players[1]
+
 	for nb in range(0,nbPlayers):
 		var i = UIunit.instance()
 		i.nb_player=nbPlayers
