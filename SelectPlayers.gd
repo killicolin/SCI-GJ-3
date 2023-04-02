@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 
 
 # Declare member variables here. Examples:
@@ -10,15 +10,6 @@ extends Control
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_1_pressed():
-	Singleton.playerNb = 1
-	get_tree().change_scene("res://Level2.tscn")
 
 
 func _on_2_pressed():
