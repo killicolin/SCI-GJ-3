@@ -32,6 +32,7 @@ func _ready():
 	p2=players[1]
 	for nb in range(0,nbPlayers):
 		var i = UIunit.instance()
+		i.player_instance=players[nb]
 		i.connect("pertubation_on_ui", self, "_on_perturbation_received")
 		i.connect("pertubation_on_ui", noise, "is_on_perturbating")
 		
