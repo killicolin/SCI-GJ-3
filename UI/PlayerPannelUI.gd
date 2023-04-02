@@ -56,10 +56,10 @@ func _input(event):
 
 func _on_fake_info_trigger_timeout():
 	var a = 0
-	#$Fakes.modulate = Color(0.2,0.2,0.2)
+	$Fakes.modulate = Color(0.2,0.2,0.2)
 
 func _on_fake_info_reload_timeout():
-	#$Fakes.modulate = Color(1,1,1)
+	$Fakes.modulate = Color(1,1,1)
 	fake_available = true
 
 func is_finished():
