@@ -96,12 +96,15 @@ text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -3.0
 autoplay = true
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -3.0
 
 [node name="click_bis" type="AudioStreamPlayer" parent="."]
+volume_db = -3.0
 
 [connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Play" to="." method="_on_Play_mouse_exited"]

@@ -186,9 +186,11 @@ stream = ExtResource( 14 )
 
 [node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -3.0
 
 [node name="WinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+volume_db = 2.0
 
 [node name="AnimReception" type="AnimatedSprite" parent="."]
 position = Vector2( -2, 1 )
