@@ -131,7 +131,7 @@ func broke():
 		robotDisabled = true
 		$disabledTimer.start()
 		asset_broke_run()
-		
+		$zapSprite.play("zap")
 		var awaited_KEY = null
 		
 #		if player == "p1":
@@ -147,6 +147,7 @@ func work():
 		$turnedOnTimer.start()
 	elif state == "work" and robotDisabled == false:
 		asset_driving_run()
+		$zapSprite.play("ok")
 		
 func stop():
 	if state == "work":
