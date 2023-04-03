@@ -20,7 +20,7 @@ func _ready():
 
 func _on_PlayAgain_pressed():
 	$bip.play()
-	get_tree().change_scene("res://Level1.tscn")
+	get_tree().change_scene("res://Level2.tscn")
 
 func _on_MainMenu_pressed():
 	$bip1.play()
