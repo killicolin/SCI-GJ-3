@@ -28,6 +28,7 @@ func _ready():
 
 func set_player_label(player_number):
 	$Label.text="Player " + str(player_number) + " :"
+	$Label.modulate = Singleton.playerColors[player_number-1]
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

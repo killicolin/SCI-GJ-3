@@ -6,9 +6,27 @@ extends Control
 # var b = "text"
 onready var selectPlayersScene = preload("res://SelectPlayers.tscn")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$VBoxContainer/ControlsInfo/Vbox.player = "p1"
+	$VBoxContainer/ControlsInfo/Vbox.playerName = "Player 1"
+	$VBoxContainer/ControlsInfo/Vbox.reassign()
+
+	$VBoxContainer/ControlsInfo/Vbox2.player = "p2"
+	$VBoxContainer/ControlsInfo/Vbox2.playerName = "Player 2"
+	$VBoxContainer/ControlsInfo/Vbox2.reassign()
+
+	$VBoxContainer/ControlsInfo/Vbox3.player = "p3"
+	$VBoxContainer/ControlsInfo/Vbox3.playerName = "Player 3"
+	$VBoxContainer/ControlsInfo/Vbox3.reassign()
+
+	$VBoxContainer/ControlsInfo/Vbox4.player = "p4"
+	$VBoxContainer/ControlsInfo/Vbox4.playerName = "Player 4"
+	$VBoxContainer/ControlsInfo/Vbox4.reassign()
+	
+#	for container in $VBoxContainer/ControlsInfo.get_children():
+#		pass
 
 
 func _on_Play_pressed():

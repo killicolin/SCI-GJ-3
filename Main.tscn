@@ -1,12 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Menu_du_jeu.png" type="Texture" id=2]
 [ext_resource path="res://serious_font.tres" type="Theme" id=3]
 [ext_resource path="res://Fonts/kirifont/KiriFont.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://Fonts/xolonium/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Sounds/Musique Rover intro.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/Bip_1.wav" type="AudioStream" id=7]
+[ext_resource path="res://UI/playerInputInfo.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -15,10 +15,6 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 22
-font_data = ExtResource( 5 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -38,60 +34,104 @@ expand = true
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -502.5
-margin_top = -290.0
-margin_right = 502.5
-margin_bottom = 290.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 20.0
+margin_right = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 60
+custom_constants/separation = 30
 alignment = 1
 
 [node name="GameName" type="Label" parent="VBoxContainer"]
-margin_right = 1005.0
+margin_right = 1330.0
 margin_bottom = 65.0
 custom_fonts/font = SubResource( 1 )
 text = "1 ! 2 ! 3 ! Rover"
 align = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 125.0
-margin_right = 1005.0
-margin_bottom = 382.0
+[node name="HboxDescription" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 95.0
+margin_right = 1330.0
+margin_bottom = 428.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.5
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-bbcode_text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui plusieurs rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
 
-Les contrôles sont :
-Pour le joueur [b]1[/b] : [b]Droite[/b] pour avancer, [b]Bas[/b] pour éteindre le rover, [b]Haut[/b] pour activer la compétence et [b]Gauche[/b] pour fake.
-Pour le joueur [b]2[/b] :  [b]D[/b] pour avancer, [b]S[/b] pour éteindre le rover, [b]Z[/b] pour activer la compétence et [b]Q[/b] pour fake.
-Pour le joueur [b]3[/b] :  [b]L[/b] pour avancer, [b]K[/b] pour éteindre le rover, [b]I[/b] pour activer la compétence et [b]J[/b] pour fake.
-Pour le joueur [b]4[/b] :  [b]N[/b] pour avancer, [b]B[/b] pour éteindre le rover, [b]G[/b] pour activer la compétence et [b]V[/b] pour fake."
-text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui plusieurs rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…
+[node name="Spacer2" type="Control" parent="VBoxContainer/HboxDescription"]
+margin_right = 60.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
 
-Les contrôles sont :
-Pour le joueur 1 : Droite pour avancer, Bas pour éteindre le rover, Haut pour activer la compétence et Gauche pour fake.
-Pour le joueur 2 :  D pour avancer, S pour éteindre le rover, Z pour activer la compétence et Q pour fake.
-Pour le joueur 3 :  L pour avancer, K pour éteindre le rover, I pour activer la compétence et J pour fake.
-Pour le joueur 4 :  N pour avancer, B pour éteindre le rover, G pour activer la compétence et V pour fake."
+[node name="Description" type="Label" parent="VBoxContainer/HboxDescription"]
+margin_left = 64.0
+margin_right = 1265.0
+margin_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "La course à la Lune a pris un nouvel essor quand les Etats-Ensemble, l’Europie, la Republique de Chano entre autres ont commencé à se battre pour les ressources à sa surface. Aujourd’hui plusieurs rovers ont atterris sur la Lune et le premier qui plantera son drapeau sur le gisement de minerai rare le possédera. Les compétiteurs devront surveiller le Soleil car les radiations endommageront les rovers si ils ne sont pas éteints à temps…"
+valign = 1
+autowrap = true
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HboxDescription"]
+margin_left = 1269.0
+margin_right = 1330.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="ControlsInfo" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 458.0
+margin_right = 1330.0
+margin_bottom = 559.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_constants/separation = 70
+alignment = 1
+
+[node name="Vbox" parent="VBoxContainer/ControlsInfo" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 280.0
+margin_bottom = 101.0
+
+[node name="Vbox2" parent="VBoxContainer/ControlsInfo" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 350.0
+margin_right = 630.0
+margin_bottom = 101.0
+
+[node name="Vbox3" parent="VBoxContainer/ControlsInfo" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 700.0
+margin_right = 980.0
+margin_bottom = 101.0
+
+[node name="Vbox4" parent="VBoxContainer/ControlsInfo" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1050.0
+margin_right = 1330.0
+margin_bottom = 101.0
 
 [node name="Play" type="Button" parent="VBoxContainer"]
-margin_top = 442.0
-margin_right = 1005.0
-margin_bottom = 481.0
+margin_top = 589.0
+margin_right = 1330.0
+margin_bottom = 628.0
 text = "Play"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
-margin_top = 541.0
-margin_right = 1005.0
-margin_bottom = 580.0
+margin_top = 658.0
+margin_right = 1330.0
+margin_bottom = 697.0
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

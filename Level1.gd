@@ -17,7 +17,7 @@ onready var sun = sunScene.instance()
 var nbPlayers = Singleton.playerNb
 
 var players =[]
-var players_color =[Color(0.5,0.5,0.7),Color(0.7,0.5,0.5),Color(0.7,0.7,0.5),Color(0.5,0.7,0.5)]
+var players_color = Singleton.playerColors
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for nb in range(0,nbPlayers):
