@@ -46,7 +46,6 @@ func _ready():
 #		$AnimatedSprite.offset = Vector2(0, -500)
 
 func get_input():
-	print(player)
 	var input_direction = Vector2(0,0)
 	if not robotDisabled:
 		input_direction = Input.get_vector("ui_accept", right_actions[player], "ui_accept", "ui_accept")
@@ -79,6 +78,7 @@ func decceleration(delta):
 
 
 func _physics_process(delta):
+	rotateAccordingTofloor()
 	get_input()
 	#check_state()
 	move_and_slide(velocity)
@@ -98,13 +98,19 @@ func _physics_process(delta):
 	$debugLabel.text = self.state
 
 
-#func check_state():
-#	if state == "broke":
-#		self.modulate = Color(0.7,0,0)
-#	elif state == "work":
-#		self.modulate = Color(0,0.7,0)
-#	elif state == "stop":
-#		self.modulate = Color(0,0,0.7)
+func rotateAccordingTofloor():
+	if $RayCast2D.is_colliding():
+		var normal = $RayCast2D.get_collision_normal()
+		print("@@@"+str(normal))
+		var new_rotation = normal.angle()+deg2rad(90)
+		var tween = get_node("Tween")
+		tween.interpolate_property(self, "rotation",
+		self.rotation, new_rotation, 0.2,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		tween.start()
+	else:
+		rotation_degrees = 0
+		
 
 func asset_broke_run():
 	$AnimatedSprite.play("broke")
